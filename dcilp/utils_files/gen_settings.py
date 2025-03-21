@@ -1,9 +1,11 @@
 import sys
-sys.path.append("..")
+# sys.path.append("..")
+print(sys.path)
 import numpy as np
 import pandas as pd
 import itertools
-from utils import utils
+import dcilp.utils_files.utils as utils
+
 
 def gen_list_settings(graph_types=None, sem_types=None, degs=[1.0], d=[100], n=[200]):
     if graph_types is None:

@@ -4,8 +4,8 @@ import os, sys, csv
 import pandas as pd
 from scipy.sparse import csc_matrix, save_npz
 
-from utils import utils
-from utils.gen_settings import gen_data_sem_original
+from .utils_files import utils
+from .utils_files.gen_settings import gen_data_sem_original
 
 """
 DCDILP: distributed learning for large-scale causal structure learning

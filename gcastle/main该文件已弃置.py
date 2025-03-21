@@ -86,7 +86,7 @@ for _ in range(args.repeat):
     dataset = IIDSimulation(W=weighted_random_dag, n=2000,
                             method=args.method, sem_type=args.sem_type)
     true_dag, X = dataset.B, dataset.X
-    
+    print("X", X.shape, X)
 
     if args.model == 'CORL':
         # rl learn
@@ -127,7 +127,9 @@ for _ in range(args.repeat):
 
         context = make_context().variables(data = pd.DataFrame(X)).build()
         model = SCORE()  # or DAS() or NoGAM() or CAM()
+        print("before learning")
         model.learn_graph(pd.DataFrame(X), context)
+        print("Finish learning")
         causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
         met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
         res2.append(met2.metrics)
