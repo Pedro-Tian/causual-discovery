@@ -203,7 +203,7 @@ if __name__ == '__main__':
         # 根据 markov_blankets 分割 true_dag 和 X
         # sub_X_list, sub_true_dag_list = split_graph(markov_blankets, true_dag, X)
         # 遍历sub_X
-        # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list):
+        # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list): # 这个for循环理论上可以写成多进程，以后再说，感觉也不重要
         #     causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X)
         #     evaluation(causal_matrix_order, met2, causal_matrix, sub_true_dag)
 
