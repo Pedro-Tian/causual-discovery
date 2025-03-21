@@ -68,6 +68,81 @@ def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
     return MBs
 
 
+def infer_causual(args, X):
+    causal_matrix_order, causal_matrix, met2 = None, None, None
+    if args.model == 'CORL':
+        # rl learn
+        model = CORL(encoder_name='transformer',
+                decoder_name='lstm',
+                reward_mode='episodic',
+                reward_regression_type='GPR',
+                batch_size=64,
+                input_dim=64,
+                embed_dim=64,
+                iteration=1000,
+                device_type='gpu',
+                device_ids=2)
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+    elif args.model == 'NOTEARS':
+        model = Notears()
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+    elif args.model == 'GOLEM':
+        model = GOLEM(num_iter=1e4)
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+    elif args.model == 'DAGGNN':
+        model = DAG_GNN()
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+    elif args.model == 'GRANDAG':
+        model = GraNDAG(input_dim=X.shape[1], iterations = 100000)
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+    elif args.model == 'SCORE':
+        # eta_G = 0.001
+        # eta_H = 0.001
+        # cam_cutoff = 0.001
+
+        # causal_matrix, top_order_SCORE = SCORE(X, eta_G, eta_H, cam_cutoff)
+
+        context = make_context().variables(data = pd.DataFrame(X)).build()
+        model = SCORE()  # or DAS() or NoGAM() or CAM()
+        print("before learning")
+        model.learn_graph(pd.DataFrame(X), context)
+        print("Finish learning")
+        causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
+        met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        # res2.append(met2.metrics)
+        causal_matrix = nx.adjacency_matrix(model.graph_).todense()
+    elif args.model == 'DAS':
+        context = make_context().variables(data = pd.DataFrame(X)).build()
+        model = DAS() 
+        model.learn_graph(pd.DataFrame(X), context)
+        causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
+        met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        # res2.append(met2.metrics)
+        causal_matrix = nx.adjacency_matrix(model.graph_).todense()
+    elif args.model == 'CAM':
+        context = make_context().variables(data = pd.DataFrame(X)).build()
+        model = CAM() 
+        model.learn_graph(pd.DataFrame(X), context)
+        causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
+        met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        # res2.append(met2.metrics)
+        causal_matrix = nx.adjacency_matrix(model.graph_).todense()
+    elif args.model == 'NoGAM':
+        context = make_context().variables(data = pd.DataFrame(X)).build()
+        model = NoGAM() 
+        model.learn_graph(pd.DataFrame(X), context)
+        causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
+        met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        # res2.append(met2.metrics)
+        causal_matrix = nx.adjacency_matrix(model.graph_).todense()
+
+    return causal_matrix_order, causal_matrix, met2
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='causal inference')
@@ -114,87 +189,29 @@ if __name__ == '__main__':
         else:
             raise ValueError('Just supported `ER` or `SF`.')
 
-        dataset = IIDSimulation(W=weighted_random_dag, n=2000,
+        dataset = IIDSimulation(W=weighted_random_dag, n=50,
                                 method=args.method, sem_type=args.sem_type)
         true_dag, X = dataset.B, dataset.X
-        print("X", X.shape, X)
+        print(f"X: {X.shape}\n{X}")
+        print(f'true_dag\n{true_dag}')
 
 
         ## 测试MB结果
-        get_MB(X)
+        markov_blankets = get_MB(X)
 
-        # exit()
+        ###### TODO #####
+        # 根据 markov_blankets 分割 true_dag 和 X
+        # sub_X_list, sub_true_dag_list = split_graph(markov_blankets, true_dag, X)
+        # 遍历sub_X
+        # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list):
+        #     causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X)
+        #     evaluation(causal_matrix_order, met2, causal_matrix, sub_true_dag)
 
-        if args.model == 'CORL':
-            # rl learn
-            model = CORL(encoder_name='transformer',
-                    decoder_name='lstm',
-                    reward_mode='episodic',
-                    reward_regression_type='GPR',
-                    batch_size=64,
-                    input_dim=64,
-                    embed_dim=64,
-                    iteration=1000,
-                    device_type='gpu',
-                    device_ids=2)
-            model.learn(X)
-            causal_matrix = model.causal_matrix
-        elif args.model == 'NOTEARS':
-            model = Notears()
-            model.learn(X)
-            causal_matrix = model.causal_matrix
-        elif args.model == 'GOLEM':
-            model = GOLEM(num_iter=1e4)
-            model.learn(X)
-            causal_matrix = model.causal_matrix
-        elif args.model == 'DAGGNN':
-            model = DAG_GNN()
-            model.learn(X)
-            causal_matrix = model.causal_matrix
-        elif args.model == 'GRANDAG':
-            model = GraNDAG(input_dim=X.shape[1], iterations = 100000)
-            model.learn(X)
-            causal_matrix = model.causal_matrix
-        elif args.model == 'SCORE':
-            # eta_G = 0.001
-            # eta_H = 0.001
-            # cam_cutoff = 0.001
 
-            # causal_matrix, top_order_SCORE = SCORE(X, eta_G, eta_H, cam_cutoff)
 
-            context = make_context().variables(data = pd.DataFrame(X)).build()
-            model = SCORE()  # or DAS() or NoGAM() or CAM()
-            print("before learning")
-            model.learn_graph(pd.DataFrame(X), context)
-            print("Finish learning")
-            causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-            met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
-            res2.append(met2.metrics)
-            causal_matrix = nx.adjacency_matrix(model.graph_).todense()
-        elif args.model == 'DAS':
-            context = make_context().variables(data = pd.DataFrame(X)).build()
-            model = DAS() 
-            model.learn_graph(pd.DataFrame(X), context)
-            causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-            met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
-            res2.append(met2.metrics)
-            causal_matrix = nx.adjacency_matrix(model.graph_).todense()
-        elif args.model == 'CAM':
-            context = make_context().variables(data = pd.DataFrame(X)).build()
-            model = CAM() 
-            model.learn_graph(pd.DataFrame(X), context)
-            causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-            met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
-            res2.append(met2.metrics)
-            causal_matrix = nx.adjacency_matrix(model.graph_).todense()
-        elif args.model == 'NoGAM':
-            context = make_context().variables(data = pd.DataFrame(X)).build()
-            model = NoGAM() 
-            model.learn_graph(pd.DataFrame(X), context)
-            causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-            met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
-            res2.append(met2.metrics)
-            causal_matrix = nx.adjacency_matrix(model.graph_).todense()
+        # compute the causual matrix
+        causal_matrix_order, causal_matrix, met2 = infer_causual(args, X)
+        if met2: res2.append(met2.metrics)
 
         # plot est_dag and true_dag
         GraphDAG(causal_matrix, true_dag)
@@ -204,8 +221,8 @@ if __name__ == '__main__':
         met = castle.metrics.MetricsDAG(causal_matrix, true_dag)
         res.append(met.metrics)
 
-
-        print("Before pruning:", met2.metrics)
+        
+        print("Before pruning:", met2.metrics) if met2 else print("Before pruning:", None)
         print("After pruning:", met.metrics)
 
 
