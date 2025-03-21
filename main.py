@@ -48,22 +48,22 @@ from dcilp.utils_files.gen_settings import gen_data_sem_original
 import argparse
 
 
-def get_MB(X):
-    # print('Running empirical ic estimation with parameters: ', opts)
+def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
+    # 这三个参数维持SCILP默认设置，具体取值也许论文里提及了？ TODO double check hyper-parameters in DCILP paper
+    # ice_lam_min, ice_lam_max, ice_lam_n 
 
-    X = X - np.mean(X, axis=0, keepdims=True)
+    data = data - np.mean(data, axis=0, keepdims=True)
     # Method ICE empirical
-    ice_lam_min = 0.1
-    ice_lam_max = 0.3
-    ice_lam_n   = 10
 
     t0 = timer()
-    out = ice_sparse_empirical(X, lams=np.linspace(ice_lam_min, \
+    out = ice_sparse_empirical(data, lams=np.linspace(ice_lam_min, \
                                                     ice_lam_max, \
                                                     ice_lam_n))
     Theta = _threshold_hard(out[0], tol=1e-3)
 
     MBs = _MBs_fromInvCov(Theta)
+    t1 = timer()
+    print(t1-t0)
     print(MBs)
     return MBs
 
