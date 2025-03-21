@@ -123,7 +123,7 @@ if __name__ == '__main__':
         ## 测试MB结果
         get_MB(X)
 
-        exit()
+        # exit()
 
         if args.model == 'CORL':
             # rl learn
