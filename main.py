@@ -159,7 +159,7 @@ if __name__ == '__main__':
                         help="?")
     parser.add_argument('--sem_type', default='gauss', type=str,
                         help="?")
-    parser.add_argument('--repeat', default=1, type=int,
+    parser.add_argument('--repeat', default=2, type=int,
                         help="number of repeated iterations")
 
     args = parser.parse_args()
@@ -189,7 +189,7 @@ if __name__ == '__main__':
         else:
             raise ValueError('Just supported `ER` or `SF`.')
 
-        dataset = IIDSimulation(W=weighted_random_dag, n=50,
+        dataset = IIDSimulation(W=weighted_random_dag, n=2000,
                                 method=args.method, sem_type=args.sem_type)
         true_dag, X = dataset.B, dataset.X
         print(f"X: {X.shape}\n{X}")
