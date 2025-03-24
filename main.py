@@ -141,16 +141,16 @@ def merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag):
     """
     recover_graph = np.zeros(true_dag.shape)
     count = np.zeros(true_dag.shape)
-    # logging.info(f"sub_nodes_list\n{sub_nodes_list}")
-    # logging.info(f"sub_causal_matrix_list\n{sub_causal_matrix_list}")
+    # logger.info(f"sub_nodes_list\n{sub_nodes_list}")
+    # logger.info(f"sub_causal_matrix_list\n{sub_causal_matrix_list}")
 
 
     for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
         recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
         count[np.ix_(nodes, nodes)] += 1
-        # logging.info(f"{nodes}\n{sub_causal_matrix}")
-        # logging.info(f"recover_graph\n{recover_graph}")
-        # logging.info(f"count\n{count}")
+        # logger.info(f"{nodes}\n{sub_causal_matrix}")
+        # logger.info(f"recover_graph\n{recover_graph}")
+        # logger.info(f"count\n{count}")
     
     count = np.maximum(count, np.ones(true_dag.shape))
     recover_graph = recover_graph/count
@@ -310,8 +310,8 @@ if __name__ == '__main__':
             # print(sub_true_dag)
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
             sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
-            logging.info(f"\nsub_causal_matrix_order {type(sub_causal_matrix_order)}\n{sub_causal_matrix_order}")
-            logging.info(f"\nsub_causal_matrix {type(sub_causal_matrix)}\n{sub_causal_matrix}")
+            # logger.info(f"\nsub_causal_matrix_order {type(sub_causal_matrix_order)}\n{sub_causal_matrix_order}")
+            # logger.info(f"\nsub_causal_matrix {type(sub_causal_matrix)}\n{sub_causal_matrix}")
             logger.info(f"sub_met2 before prunning {sub_met2.metrics}")
             logger.info(f"sub_met after prunning {sub_met.metrics}")
             
@@ -320,10 +320,10 @@ if __name__ == '__main__':
         
         # merge 
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
-        logging.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # 四舍五入
         merged_causal_matrix = np.around(merged_causal_matrix)
-        logging.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # TODO merged_causal_matrix目前只是简单的加权求和，不保证是DAG，所以评估时可能报错
         try:
             merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
