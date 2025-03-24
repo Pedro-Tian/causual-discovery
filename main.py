@@ -39,18 +39,48 @@ from dodiscover.toporder import SCORE, DAS, NoGAM, CAM
 
 from dodiscover.context_builder import make_context
 
-## 屎山真恶心
 from dcilp.dcdilp_Ph1MB1 import *
 from dcilp.dcdilp_Ph1MB1 import _threshold_hard, _MBs_fromInvCov
 import dcilp.utils_files.utils as utils
 from dcilp.utils_files.gen_settings import gen_data_sem_original
 
 import argparse
+import logging
 
 
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'causal-discovery')))
+
+
+def set_logger(args):
+    # 配置日志
+    # 记录不同级别的日志
+    # logger.debug("这是一条debug信息")
+    # logger.info("这是一条info信息")
+    # logger.warning("这是一条warning信息")
+    # logger.error("这是一条error信息")
+    # logger.critical("这是一条critical信息")
+    
+    logger = logging.getLogger(__name__)
+    log_level = logging.DEBUG
+    logger.setLevel(log_level)
+
+    log_formatter = logging.Formatter('[%(asctime)s][%(name)s][%(levelname)s] %(message)s')
+    file_handler = logging.FileHandler(f"./experiment_logs/{args.type}{args.h}N{args.nodes}_{args.model}.log")
+    file_handler.setLevel(log_level)
+    file_handler.setFormatter(log_formatter)
+    logger.addHandler(file_handler)
+
+    # log_formatter = logging.Formatter('%(message)s')
+    # console_handler = logging.StreamHandler()
+    # console_handler.setLevel(log_level)
+    # console_handler.setFormatter(log_formatter)
+    # logger.addHandler(console_handler)
+    
+    return logger
+    
+    
 
 def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
     # 这三个参数维持SCILP默认设置，具体取值也许论文里提及了？ TODO double check hyper-parameters in DCILP paper
@@ -101,7 +131,7 @@ def split_graph(markov_blankets, true_dag, X):
     return sub_X_list, sub_true_dag_list, sub_nodes_list        
 
 
-def infer_causual(args, X):
+def infer_causual(args, X, true_dag):
     causal_matrix_order, causal_matrix, met2 = None, None, None
     if args.model == 'CORL':
         # rl learn
@@ -142,9 +172,9 @@ def infer_causual(args, X):
 
         context = make_context().variables(data = pd.DataFrame(X)).build()
         model = SCORE()  # or DAS() or NoGAM() or CAM()
-        print("before learning")
+        # print("before learning")
         model.learn_graph(pd.DataFrame(X), context)
-        print("Finish learning")
+        # print("Finish learning")
         causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
         met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
         # res2.append(met2.metrics)
@@ -192,10 +222,14 @@ if __name__ == '__main__':
                         help="?")
     parser.add_argument('--sem_type', default='gauss', type=str,
                         help="?")
-    parser.add_argument('--repeat', default=2, type=int,
+    parser.add_argument('--repeat', default=1, type=int,
                         help="number of repeated iterations")
 
     args = parser.parse_args()
+
+    # setup log
+    logger = set_logger(args)
+    # logger.setLevel(logging.DEBUG)
 
     # type = 'ER'  # or `SF`
     # h = 5  # ER2 when h=5 --> ER5
@@ -243,21 +277,26 @@ if __name__ == '__main__':
         for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
                                                          sub_true_dag_list, 
                                                          sub_nodes_list)):
-            print(f"\n===  {i}-th graph ===")
-            print("Nodes of Markov blanket:", sub_nodes)
+            logger.info(f"\n===  {i}-th graph ===")
+            logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
+            # print(sub_X)
+            # print(sub_true_dag)
+            
 
 
         ###### TODO ##### 测试这一部分的order，然后按照sub_nodes还原回去
 
-            # causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X) 
-
+            sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causual(args, sub_X, sub_true_dag) 
+            sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
+            logger.info(f"sub_met2 before prunning {sub_met2.metrics}")
+            logger.info(f"sub_met after prunning {sub_met.metrics}")
 
         # compute the causual matrix
-        causal_matrix_order, causal_matrix, met2 = infer_causual(args, X)
+        causal_matrix_order, causal_matrix, met2 = infer_causual(args, X, true_dag)
         if met2: res2.append(met2.metrics)
 
         # plot est_dag and true_dag
-        GraphDAG(causal_matrix, true_dag)
+        # GraphDAG(causal_matrix, true_dag)
 
 
         # calculate accuracy
@@ -265,8 +304,8 @@ if __name__ == '__main__':
         res.append(met.metrics)
 
         
-        print("Before pruning:", met2.metrics) if met2 else print("Before pruning:", None)
-        print("After pruning:", met.metrics)
+        logger.info(f"Before pruning: {met2.metrics}") if met2 else logger.info(f"Before pruning: {None}",)
+        logger.info(f"After pruning: {met.metrics}")
 
 
     keys = res[0].keys()
@@ -285,7 +324,7 @@ if __name__ == '__main__':
         std_devs[key] = np.std(std_devs[key])
 
     result2 = {key: f"{averages[key]:.2f}+-{std_devs[key]:.2f}" for key in keys}
-    print("Before pruning:", result2)
+    logger.info(f"Before pruning: {result2}")
 
 
     averages = {key: [] for key in keys}
@@ -302,5 +341,5 @@ if __name__ == '__main__':
         std_devs[key] = np.std(std_devs[key])
 
     result = {key: f"{averages[key]:.2f}+-{std_devs[key]:.2f}" for key in keys}
-    print("After pruning:", result)
+    logger.info(f"After pruning: {result}")
 
