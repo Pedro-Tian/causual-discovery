@@ -61,13 +61,15 @@ def set_logger(args):
     # logger.warning("这是一条warning信息")
     # logger.error("这是一条error信息")
     # logger.critical("这是一条critical信息")
+    log_path = f"./experiment_logs/{args.type}{args.h}N{args.nodes}_{args.model}.log"
+    if os.path.exists(log_path): os.remove(log_path)
     
     logger = logging.getLogger(__name__)
     log_level = logging.DEBUG
     logger.setLevel(log_level)
 
     log_formatter = logging.Formatter('[%(asctime)s][%(name)s][%(levelname)s] %(message)s')
-    file_handler = logging.FileHandler(f"./experiment_logs/{args.type}{args.h}N{args.nodes}_{args.model}.log")
+    file_handler = logging.FileHandler(log_path)
     file_handler.setLevel(log_level)
     file_handler.setFormatter(log_formatter)
     logger.addHandler(file_handler)
@@ -128,10 +130,35 @@ def split_graph(markov_blankets, true_dag, X):
         sub_true_dag_list.append(sub_dag)
         sub_nodes_list.append(nodes)
 
-    return sub_X_list, sub_true_dag_list, sub_nodes_list        
+    return sub_X_list, sub_true_dag_list, sub_nodes_list     
+
+def merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag):
+    """
+    A naiive voting merge method, directly weighted sum all edges mentioned in `sub_causal_matrix_list`
+
+    sub_nodes_list: 2-D List
+    sub_causal_matrix_list: List of np arrays
+    """
+    recover_graph = np.zeros(true_dag.shape)
+    count = np.zeros(true_dag.shape)
+    # logging.info(f"sub_nodes_list\n{sub_nodes_list}")
+    # logging.info(f"sub_causal_matrix_list\n{sub_causal_matrix_list}")
 
 
-def infer_causual(args, X, true_dag):
+    for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
+        recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
+        count[np.ix_(nodes, nodes)] += 1
+        # logging.info(f"{nodes}\n{sub_causal_matrix}")
+        # logging.info(f"recover_graph\n{recover_graph}")
+        # logging.info(f"count\n{count}")
+    
+    count = np.maximum(count, np.ones(true_dag.shape))
+    recover_graph = recover_graph/count
+    
+    return recover_graph
+
+
+def infer_causal(args, X, true_dag):
     causal_matrix_order, causal_matrix, met2 = None, None, None
     if args.model == 'CORL':
         # rl learn
@@ -271,28 +298,42 @@ if __name__ == '__main__':
         sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
         # 遍历sub_X
         # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list): # 这个for循环理论上可以写成多进程，以后再说，感觉也不重要
-        #     causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X)
+        #     causal_matrix_order, causal_matrix, met2 = infer_causal(args, sub_X)
         #     evaluation(causal_matrix_order, met2, causal_matrix, sub_true_dag)
 
+        sub_causal_matrix_list = []
         for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
                                                          sub_true_dag_list, 
                                                          sub_nodes_list)):
             logger.info(f"\n===  {i}-th graph ===")
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
-            # print(sub_X)
             # print(sub_true_dag)
-            
-
-
-        ###### TODO ##### 测试这一部分的order，然后按照sub_nodes还原回去
-
-            sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causual(args, sub_X, sub_true_dag) 
+            sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
             sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
+            logging.info(f"\nsub_causal_matrix_order {type(sub_causal_matrix_order)}\n{sub_causal_matrix_order}")
+            logging.info(f"\nsub_causal_matrix {type(sub_causal_matrix)}\n{sub_causal_matrix}")
             logger.info(f"sub_met2 before prunning {sub_met2.metrics}")
             logger.info(f"sub_met after prunning {sub_met.metrics}")
+            
+            # 剪枝前
+            sub_causal_matrix_list.append(sub_causal_matrix_order)
+        
+        # merge 
+        merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
+        logging.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        # 四舍五入
+        merged_causal_matrix = np.around(merged_causal_matrix)
+        logging.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        # TODO merged_causal_matrix目前只是简单的加权求和，不保证是DAG，所以评估时可能报错
+        try:
+            merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
+            logger.info(f"merged_met before prunning {merged_met.metrics}")
+        except Exception as e:
+            logger.info(f"[Error] {e}")
 
-        # compute the causual matrix
-        causal_matrix_order, causal_matrix, met2 = infer_causual(args, X, true_dag)
+
+        # compute the causal matrix
+        causal_matrix_order, causal_matrix, met2 = infer_causal(args, X, true_dag)
         if met2: res2.append(met2.metrics)
 
         # plot est_dag and true_dag
