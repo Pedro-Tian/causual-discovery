@@ -48,6 +48,10 @@ from dcilp.utils_files.gen_settings import gen_data_sem_original
 import argparse
 
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'causal-discovery')))
+
 def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
     # 这三个参数维持SCILP默认设置，具体取值也许论文里提及了？ TODO double check hyper-parameters in DCILP paper
     # ice_lam_min, ice_lam_max, ice_lam_n 
@@ -66,6 +70,35 @@ def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
     print(t1-t0)
     print(MBs)
     return MBs
+
+
+def split_graph(markov_blankets, true_dag, X):
+    # sub_X_list: 每个元素为子图对应的数据矩阵
+    # sub_true_dag_list: 每个元素为子图对应的邻接矩阵 (感觉好像没用)
+    # sub_nodes_list：很重要，子图排序完之后要恢复回原来的节点
+
+    sub_X_list = []
+    sub_true_dag_list = []
+    sub_nodes_list = []
+    n_nodes = len(markov_blankets)
+
+    for i in range(n_nodes):
+        blanket_indices = np.where(markov_blankets[i])[0]
+
+        # 把节点 i 自己也加进去
+        nodes = set(blanket_indices)
+        nodes.add(i)
+        nodes = sorted(nodes)
+
+        sub_X = X[:, nodes]
+
+        sub_dag = true_dag[np.ix_(nodes, nodes)]
+
+        sub_X_list.append(sub_X)
+        sub_true_dag_list.append(sub_dag)
+        sub_nodes_list.append(nodes)
+
+    return sub_X_list, sub_true_dag_list, sub_nodes_list        
 
 
 def infer_causual(args, X):
@@ -199,14 +232,24 @@ if __name__ == '__main__':
         ## 测试MB结果
         markov_blankets = get_MB(X)
 
-        ###### TODO #####
+
         # 根据 markov_blankets 分割 true_dag 和 X
-        # sub_X_list, sub_true_dag_list = split_graph(markov_blankets, true_dag, X)
+        sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
         # 遍历sub_X
         # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list): # 这个for循环理论上可以写成多进程，以后再说，感觉也不重要
         #     causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X)
         #     evaluation(causal_matrix_order, met2, causal_matrix, sub_true_dag)
 
+        for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
+                                                         sub_true_dag_list, 
+                                                         sub_nodes_list)):
+            print(f"\n===  {i}-th graph ===")
+            print("Nodes of Markov blanket:", sub_nodes)
+
+
+        ###### TODO ##### 测试这一部分的order，然后按照sub_nodes还原回去
+
+            # causal_matrix_order, causal_matrix, met2 = infer_causual(args, sub_X) 
 
 
         # compute the causual matrix
