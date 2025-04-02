@@ -346,7 +346,9 @@ if __name__ == '__main__':
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
         logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # 四舍五入
-        merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
+        # merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
+        # 向上取整
+        merged_causal_matrix = np.ceil(merged_causal_matrix).astype(np.int64)
         is_dag_prev = check_dag(merged_causal_matrix)
         # logger.info(f"merged_causal_matrix is_dag {is_dag_prev}\n{merged_causal_matrix}")
         merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
