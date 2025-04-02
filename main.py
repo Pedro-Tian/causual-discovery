@@ -344,6 +344,7 @@ if __name__ == '__main__':
         
         # merge 
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
+        # np.save('merged_causal_matrix.npy', merged_causal_matrix)
         logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # 四舍五入
         # merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
@@ -359,7 +360,6 @@ if __name__ == '__main__':
         try:
             run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
             dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
-            
             merged_dag_met = castle.metrics.MetricsDAG(dag_causal_matrix, true_dag)
             logger.info(f"merged_dag_met, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
         except Exception as e:
