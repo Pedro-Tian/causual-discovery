@@ -44,6 +44,8 @@ from dcilp.dcdilp_Ph1MB1 import _threshold_hard, _MBs_fromInvCov
 import dcilp.utils_files.utils as utils
 from dcilp.utils_files.gen_settings import gen_data_sem_original
 
+from mas_approximation import MAS_Approx
+
 import argparse
 import logging
 
@@ -157,6 +159,14 @@ def merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag):
     
     return recover_graph
 
+def check_dag(arr):
+    """
+    arr np.array
+    """
+    G = nx.from_numpy_array(arr, create_using=nx.DiGraph())
+    is_dag = nx.is_directed_acyclic_graph(G)
+    return is_dag
+
 
 def infer_causal(args, X, true_dag):
     causal_matrix_order, causal_matrix, met2 = None, None, None
@@ -251,6 +261,8 @@ if __name__ == '__main__':
                         help="?")
     parser.add_argument('--repeat', default=1, type=int,
                         help="number of repeated iterations")
+    parser.add_argument('--num_observation', default=100, type=int,
+                        help="number of observation data")
 
     args = parser.parse_args()
 
@@ -283,7 +295,7 @@ if __name__ == '__main__':
         else:
             raise ValueError('Just supported `ER` or `SF`.')
 
-        dataset = IIDSimulation(W=weighted_random_dag, n=2000,
+        dataset = IIDSimulation(W=weighted_random_dag, n=args.num_observation,
                                 method=args.method, sem_type=args.sem_type)
         true_dag, X = dataset.B, dataset.X
         print(f"X: {X.shape}\n{X}")
@@ -322,12 +334,19 @@ if __name__ == '__main__':
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
         logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # 四舍五入
-        merged_causal_matrix = np.around(merged_causal_matrix)
-        logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
+        is_dag_prev = check_dag(merged_causal_matrix)
+        logger.info(f"merged_causal_matrix is_dag {is_dag_prev}\n{merged_causal_matrix}")
         # TODO merged_causal_matrix目前只是简单的加权求和，不保证是DAG，所以评估时可能报错
+        
+        run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
+        dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
+
         try:
             merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
-            logger.info(f"merged_met before prunning {merged_met.metrics}")
+            logger.info(f"merged_met is_dag {is_dag_prev}, before prunning {merged_met.metrics}")
+            merged_dag_met = castle.metrics.MetricsDAG(dag_causal_matrix, true_dag)
+            logger.info(f"merged_dag_met is_dag True, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
         except Exception as e:
             logger.info(f"[Error] {e}")
 

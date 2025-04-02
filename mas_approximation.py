@@ -15,24 +15,6 @@ class MAS_Approx:
         self.Eps = 10**(-prec)
         self.dimension = dim #setting the dimension
         self.theta = theta #set the tolerance parameter
-        # run_time = []
-        # edge_perc = []
-        # no_of_iter = []
-        # for x in range(5):
-        #     A = self.create_graph(self.dimension)
-        #     # print(f"A: {A}")
-        #     # print (f"leading(A): {leading(A)}")#generating start. graph
-        #     GPN = self.closest_graph_PN(A) #running the algorithm 
-        #     # print (f"GPN: {GPN}")
-        #     run_time.append(GPN[0])
-        #     edge_perc.append(GPN[1])
-        #     no_of_iter.append(GPN[2])
-        #     adj_matrix = GPN[-1]
-        #     G = nx.from_numpy_array(adj_matrix, create_using=nx.DiGraph())
-        #     is_dag = nx.is_directed_acyclic_graph(G)
-        #     # print(f"adj_matrix {adj_matrix}")
-        #     print(f"is_dag {is_dag}")
-        #     print ('......................')
 
     def run(self, Adj_matrix):
         GPN = self.closest_graph_PN(Adj_matrix) #running the algorithm 
@@ -531,7 +513,7 @@ if __name__ == '__main__':
 
     for x in range(1):
         A = mas.create_graph(mas.dimension)
-        print(A, A.shape)
+        print(A, A.shape, type(A), A.dtype)
         run_time, edge_perc, no_of_iter, G = mas.run(A)
         print(f"{run_time} {edge_perc} {no_of_iter}")
         print(f"DAG\n{G}")
