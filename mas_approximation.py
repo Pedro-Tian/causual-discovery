@@ -122,18 +122,20 @@ class MAS_Approx:
             OR if they have the same leading eigenvector,
             OR if the spectral radius of X_k is less than 1 - \theta, 
             we finish the greedy method'''
+            # print(f"{(X[supp] == Z[supp]).all()}, {(v == v0).all()}, {(spect_radius < 1 - self.theta)}")
+            # time.sleep(1)
             if (X[supp] == Z[supp]).all() or (v == v0).all() or (spect_radius < 1 - self.theta):
                 supp = list(np.where(v0 != 0)[0])
-                return np.round(X,self.precesion), spect_radius, v0, supp
+                return np.round(X,self.precesion), spect_radius#, v0, supp
             else:
                 supp = list(np.where(v0 != 0)[0])
                 notsupp = list(set(range(self.dimension)) - set(supp))
                 notsupp.sort()
 
     def forward(self, A,spectfin,k):
-        
+        Xstar = np.copy(A)
         while (spectfin != 0):
-            
+            # print(f"stuck in forward? spectfin= {spectfin} k={k}")
             if (spectfin > 6): 
                 k += 2
             else:
@@ -147,12 +149,13 @@ class MAS_Approx:
     def backward(self, A,X,spect,k):
         
         while (spect == 0):
-            Xstar = np.copy(X)
+            # print(f"stuck in while? k={k}")
+            # time.sleep(1)
             spectfin = spect
             k -= 1
-            X, spect = self.selectivegreedylinf(A,k)
+            X, spect = self.selective_greedy(A,k)
             
-        
+        Xstar = np.copy(X)
         return Xstar, spectfin
 
     def the_tree(self, A,X):
@@ -426,20 +429,22 @@ class MAS_Approx:
         '''doing a bisection in k until we obtain a matrix with
         appropriate spectral radius'''
 
-        while (seg >= 1):
-
+        while (seg > 1):
+            # print("stuck in seg? ",seg)
             Xstar, spect_radius = self.PN_greedy(A,k0)
             # print(spect_radius, k0)
-            
+            # time.sleep(1)
 
             
             if (spect_radius > 3):
+                # print("if spect>3")
                 k1 = k0
                 seg /= 2.0
                 seg = np.ceil(seg)
                 k0 += seg
 
             elif (spect_radius == 0):
+                # print("elif spect==0")
                 k1 = k0
                 seg /= 2.0
                 seg = np.ceil(seg)
@@ -449,15 +454,16 @@ class MAS_Approx:
                 k1 = k0
                 break
 
-        if (spect_radius != 0):
-            '''if a last obtained matrix has a spectral radius bigger than zero
-            we move k forward untill we obtain an acyclic graph'''
-            Xstar, spect_radius = self.forward(A,spect_radius,k1)
-        else:
-            '''if a last obtained matrix has a zero spectral radius, 
-            we move k backwards untill we get a minimal k for which
-            we have an acyclic graph'''
-            Xstar, spect_radius = self.backward(A,Xstar,spect_radius,k1)
+        # print(A, Xstar,spect_radius,k1)
+        # if (spect_radius != 0):
+            # '''if a last obtained matrix has a spectral radius bigger than zero
+            # we move k forward untill we obtain an acyclic graph'''
+        Xstar, spect_radius = self.forward(A,spect_radius,k1)
+        # else:
+        #     '''if a last obtained matrix has a zero spectral radius, 
+        #     we move k backwards untill we get a minimal k for which
+        #     we have an acyclic graph'''
+        #     Xstar, spect_radius = self.backward(A,Xstar,spect_radius,k1)
 
 
         run = time.time() - start #running time after the Step X
@@ -509,13 +515,31 @@ class MAS_Approx:
 
 
 if __name__ == '__main__':
-    mas = MAS_Approx(prec=8, dim=50, theta=1e-4)
+    dim = 50
+    mas = MAS_Approx(prec=8, dim=dim, theta=1e-4)
 
-    for x in range(1):
-        A = mas.create_graph(mas.dimension)
-        print(A, A.shape, type(A), A.dtype)
+    for x in range(50):
+        A = mas.create_graph(dim)
+        
+        # A = np.load('test_matrix.npy')
+        G = nx.from_numpy_array(A, create_using=nx.DiGraph())
+        is_dag = nx.is_directed_acyclic_graph(G)
+        # print(A, A.shape, type(A), A.dtype)
+        print(f"{A.shape}, {type(A)}, {A.dtype} is_dag={is_dag}")
         run_time, edge_perc, no_of_iter, G = mas.run(A)
         print(f"{run_time} {edge_perc} {no_of_iter}")
         print(f"DAG\n{G}")
     
 # print (np.average(run_time), np.average(edge_perc), np.average(no_of_iter))
+
+    # a = np.array([[0 0 0 0 0 1 0 0 0 0]
+    # [1 0 1 1 1 1 1 1 1 1]
+    # [0 0 0 1 0 0 0 0 0 0]
+    # [0 0 0 0 0 1 0 0 0 0]
+    # [0 0 1 1 0 1 1 1 1 1]
+    # [0 0 0 0 0 0 0 0 0 0]
+    # [1 0 1 1 0 1 0 1 0 0]
+    # [1 0 1 1 0 1 0 0 0 0]
+    # [1 0 1 1 0 1 1 1 0 0]
+    # [1 0 1 0 0 1 1 1 1 0]])
+    # print(a)

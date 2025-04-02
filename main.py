@@ -29,13 +29,14 @@ os.environ['CASTLE_BACKEND'] ='pytorch'
 import pandas as pd
 import networkx as nx
 import numpy as np
+import traceback
 
 import castle
 from castle.common import GraphDAG
 
 from castle.datasets import DAG, IIDSimulation
-from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
-from dodiscover.toporder import SCORE, DAS, NoGAM, CAM
+# from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
+from dodiscover.toporder import SCORE#, DAS, NoGAM, CAM
 
 from dodiscover.context_builder import make_context
 
@@ -213,7 +214,12 @@ def infer_causal(args, X, true_dag):
         model.learn_graph(pd.DataFrame(X), context)
         # print("Finish learning")
         causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-        met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        print(causal_matrix_order, true_dag)
+        try:
+            met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
+        except Exception as e:
+            met2=None
+            logger.info(f"[Error] met2=None: {traceback.format_exc()}")
         # res2.append(met2.metrics)
         causal_matrix = nx.adjacency_matrix(model.graph_).todense()
     elif args.model == 'DAS':
@@ -261,7 +267,7 @@ if __name__ == '__main__':
                         help="?")
     parser.add_argument('--repeat', default=1, type=int,
                         help="number of repeated iterations")
-    parser.add_argument('--num_observation', default=100, type=int,
+    parser.add_argument('--num_observation', default=2000, type=int,
                         help="number of observation data")
 
     args = parser.parse_args()
@@ -319,13 +325,19 @@ if __name__ == '__main__':
                                                          sub_nodes_list)):
             logger.info(f"\n===  {i}-th graph ===")
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
+            # if len(sub_nodes) == 1: continue
             # print(sub_true_dag)
+            # print(sub_X, sub_true_dag, sub_nodes)
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
-            sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
+            try:
+                sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
+            except Exception as e:
+                sub_met = None
+                logger.info(f"[Error] sub_met=None: {traceback.format_exc()}")
             # logger.info(f"\nsub_causal_matrix_order {type(sub_causal_matrix_order)}\n{sub_causal_matrix_order}")
             # logger.info(f"\nsub_causal_matrix {type(sub_causal_matrix)}\n{sub_causal_matrix}")
-            logger.info(f"sub_met2 before prunning {sub_met2.metrics}")
-            logger.info(f"sub_met after prunning {sub_met.metrics}")
+            logger.info(f"sub_met2 before prunning {sub_met2.metrics if sub_met2 else None}") 
+            logger.info(f"sub_met after prunning {sub_met.metrics if sub_met else None}")
             
             # 剪枝前
             sub_causal_matrix_list.append(sub_causal_matrix_order)
@@ -336,22 +348,24 @@ if __name__ == '__main__':
         # 四舍五入
         merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
         is_dag_prev = check_dag(merged_causal_matrix)
-        logger.info(f"merged_causal_matrix is_dag {is_dag_prev}\n{merged_causal_matrix}")
-        # TODO merged_causal_matrix目前只是简单的加权求和，不保证是DAG，所以评估时可能报错
-        
-        run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
-        dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
+        # logger.info(f"merged_causal_matrix is_dag {is_dag_prev}\n{merged_causal_matrix}")
+        merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
+        logger.info(f"merged_met is_dag {is_dag_prev}, before prunning {merged_met.metrics}")
+        # np.save('test_matrix.npy', merged_causal_matrix)
+        # TODO merge且保证是DAG
 
         try:
-            merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
-            logger.info(f"merged_met is_dag {is_dag_prev}, before prunning {merged_met.metrics}")
+            run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
+            dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
+            
             merged_dag_met = castle.metrics.MetricsDAG(dag_causal_matrix, true_dag)
-            logger.info(f"merged_dag_met is_dag True, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
+            logger.info(f"merged_dag_met, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
         except Exception as e:
-            logger.info(f"[Error] {e}")
+            logger.info(f"[Error] {traceback.format_exc()}")
+            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}.npy", merged_causal_matrix)
 
 
-        # compute the causal matrix
+        # compute the causal matrix directly
         causal_matrix_order, causal_matrix, met2 = infer_causal(args, X, true_dag)
         if met2: res2.append(met2.metrics)
 
