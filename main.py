@@ -119,7 +119,9 @@ def split_graph(markov_blankets, true_dag, X):
 
     for i in range(n_nodes):
         blanket_indices = np.where(markov_blankets[i])[0]
-
+        # print(i, blanket_indices)
+        if len(blanket_indices) <= 1:
+            continue
         # 把节点 i 自己也加进去
         nodes = set(blanket_indices)
         nodes.add(i)
@@ -310,10 +312,12 @@ if __name__ == '__main__':
 
         ## 测试MB结果
         markov_blankets = get_MB(X)
-
+        print(markov_blankets)
+        
 
         # 根据 markov_blankets 分割 true_dag 和 X
         sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
+        exit()
         # 遍历sub_X
         # for sub_X, sub_true_dag in zip(sub_X_list, sub_true_dag_list): # 这个for循环理论上可以写成多进程，以后再说，感觉也不重要
         #     causal_matrix_order, causal_matrix, met2 = infer_causal(args, sub_X)

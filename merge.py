@@ -28,6 +28,10 @@ def find_cycle_min_edge(G):
         return None
 
 def adjacency_matrix_to_dag(A):
+    """
+    Greedy method, find cycle in while loop and break it
+    """
+
     G = nx.from_numpy_array(A, create_using=nx.DiGraph())
     
     # 持续移除环中最小边
@@ -123,24 +127,10 @@ def _eades_ordering(G):
         sinks = [n for n in G.nodes() if G.out_degree(n) == 0]
     return S
 
-# # 测试案例
-# if __name__ == "__main__":
-#     A = np.array([
-#         [0, 3, 2, 0],
-#         [0, 0, 4, 1],
-#         [0, 0, 0, 5],
-#         [2, 0, 0, 0]
-#     ], dtype=float)
-    
-#     print("原始矩阵:")
-#     print(A)
-    
-#     dag_A = improved_adjacency_to_dag(A.copy())
-    
-#     print("\n改进算法结果:")
-#     print(dag_A)
-#     print("是否无环:", nx.is_directed_acyclic_graph(nx.DiGraph(dag_A)))
 def GreedyFAS(A):
+    """
+    Greedy Feedback Arc Set
+    """
     G = nx.from_numpy_array(A, create_using=nx.DiGraph())
     graph = []
     for edge in G.edges(data=True):
