@@ -132,6 +132,8 @@ def GreedyFAS(A):
     Greedy Feedback Arc Set
     """
     G = nx.from_numpy_array(A, create_using=nx.DiGraph())
+    if nx.is_directed_acyclic_graph(G): return A
+    
     graph = []
     for edge in G.edges(data=True):
         n1, n2, w = edge

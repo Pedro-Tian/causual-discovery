@@ -46,6 +46,7 @@ import dcilp.utils_files.utils as utils
 from dcilp.utils_files.gen_settings import gen_data_sem_original
 
 from mas_approximation import MAS_Approx
+from merge import adjacency_matrix_to_dag, GreedyFAS
 
 import argparse
 import logging
@@ -216,7 +217,7 @@ def infer_causal(args, X, true_dag):
         model.learn_graph(pd.DataFrame(X), context)
         # print("Finish learning")
         causal_matrix_order = nx.adjacency_matrix(model.order_graph_).todense()
-        print(causal_matrix_order, true_dag)
+        # print(causal_matrix_order, true_dag)
         try:
             met2 = castle.metrics.MetricsDAG(causal_matrix_order, true_dag)
         except Exception as e:
@@ -312,7 +313,6 @@ if __name__ == '__main__':
 
         ## 测试MB结果
         markov_blankets = get_MB(X)
-        print(markov_blankets)
         
 
         # 根据 markov_blankets 分割 true_dag 和 X
@@ -325,8 +325,6 @@ if __name__ == '__main__':
             logger.info(f"\n===  {i}-th graph ===")
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
             # if len(sub_nodes) == 1: continue
-            # print(sub_true_dag)
-            # print(sub_X, sub_true_dag, sub_nodes)
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
             try:
                 sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
@@ -348,22 +346,22 @@ if __name__ == '__main__':
         # 四舍五入
         # merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
         # 向上取整
-        merged_causal_matrix = np.ceil(merged_causal_matrix).astype(np.int64)
-        is_dag_prev = check_dag(merged_causal_matrix)
-        # logger.info(f"merged_causal_matrix is_dag {is_dag_prev}\n{merged_causal_matrix}")
-        merged_met = castle.metrics.MetricsDAG(merged_causal_matrix, true_dag)
-        logger.info(f"merged_met is_dag {is_dag_prev}, before prunning {merged_met.metrics}")
+        # merged_causal_matrix = np.ceil(merged_causal_matrix).astype(np.int64)
+        merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}.npy", merge_DAG)
+        merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+        logger.info(f"merged_met  before prunning {merged_met.metrics}")
         # np.save('test_matrix.npy', merged_causal_matrix)
         # TODO merge且保证是DAG
 
-        try:
-            run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
-            dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
-            merged_dag_met = castle.metrics.MetricsDAG(dag_causal_matrix, true_dag)
-            logger.info(f"merged_dag_met, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
-        except Exception as e:
-            logger.info(f"[Error] {traceback.format_exc()}")
-            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}.npy", merged_causal_matrix)
+        # try:
+        #     run_time, edge_perc, no_of_iter, DAG_graph = MAS_Approx(dim=args.nodes).run(merged_causal_matrix)
+        #     dag_causal_matrix = nx.adjacency_matrix(DAG_graph).todense()
+        #     merged_dag_met = castle.metrics.MetricsDAG(dag_causal_matrix, true_dag)
+        #     logger.info(f"merged_dag_met, time {run_time} edge_perc {edge_perc} no_of_iter {no_of_iter}\nbefore prunning {merged_dag_met.metrics}")
+        # except Exception as e:
+        #     logger.info(f"[Error] {traceback.format_exc()}")
+        #     np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}.npy", merged_causal_matrix)
 
 
         # compute the causal matrix directly
