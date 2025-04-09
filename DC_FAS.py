@@ -30,6 +30,7 @@ import pandas as pd
 import networkx as nx
 import numpy as np
 import traceback
+import time
 
 import castle
 from castle.common import GraphDAG
@@ -308,12 +309,15 @@ if __name__ == '__main__':
 
 
         ## 测试MB结果
+        t1 = time.time()
         markov_blankets = get_MB(X)
+        time_MB = time.time()-t1
         
 
         # 根据 markov_blankets 分割 true_dag 和 X
         sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
 
+        time_subgraph_list = []
         sub_causal_matrix_list_befroe = []
         sub_causal_matrix_list_after = []
         for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
@@ -322,7 +326,10 @@ if __name__ == '__main__':
             logger.info(f"\n===  {i}-th graph ===")
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
             # if len(sub_nodes) == 1: continue
+            t1 = time.time()
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
+            time_subgraph = time.time()-t1
+            time_subgraph_list.append(time_subgraph)
             try:
                 sub_met = castle.metrics.MetricsDAG(sub_causal_matrix, sub_true_dag)
             except Exception as e:
@@ -337,30 +344,43 @@ if __name__ == '__main__':
             sub_causal_matrix_list_befroe.append(sub_causal_matrix_order)
             # 剪枝后
             sub_causal_matrix_list_after.append(sub_causal_matrix)
-
+        time_subgraph_avg = sum(time_subgraph_list)/len(time_subgraph_list) if len(time_subgraph_list)>0 else -1
+        time_subgraph_max = max(time_subgraph_list)
+        time_subgraph_tot = sum(time_subgraph_list)
         
         # merge 
+        t1 = time.time()
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
-        # np.save('merged_causal_matrix.npy', merged_causal_matrix)
-        # logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
-        # 四舍五入
-        # merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
-        # 向上取整
-        # merged_causal_matrix = np.ceil(merged_causal_matrix).astype(np.int64)
         merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        time_FAS_before = time.time()-t1
         np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
         merged_met_before = castle.metrics.MetricsDAG(merge_DAG, true_dag)
         logger.info(f"merged_met_before  before prunning {merged_met_before.metrics}")
 
+        t1 = time.time()
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
         merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        time_FAS_after = time.time()-t1
         np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
         merged_met_after = castle.metrics.MetricsDAG(merge_DAG, true_dag)
         logger.info(f"merged_met_after  after prunning {merged_met_after.metrics}")
-        
-        # TODO merge且保证是DAG
-        if merged_met_before: res_before_prunning.append(merged_met_before.metrics)
-        res_after_prunning.append(merged_met_after.metrics)
+
+        if merged_met_before:
+            mmbef = merged_met_before.metrics
+            mmbef['time_mb'] = time_MB
+            mmbef['time_sub_avg'] = time_subgraph_avg
+            mmbef['time_sub_max'] = time_subgraph_max
+            mmbef['time_sub_tot'] = time_subgraph_tot
+            mmbef['time_FAS'] = time_FAS_before
+            res_before_prunning.append(mmbef)
+        if merged_met_after:
+            mmaft = merged_met_after.metrics
+            mmaft['time_mb'] = time_MB
+            mmaft['time_sub_avg'] = time_subgraph_avg
+            mmaft['time_sub_max'] = time_subgraph_max
+            mmaft['time_sub_tot'] = time_subgraph_tot
+            mmaft['time_FAS'] = time_FAS_after
+            res_after_prunning.append(mmaft)
 
 
 

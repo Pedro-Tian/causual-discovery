@@ -2,4 +2,6 @@
 ./gcastle/.
 *.sh
 ./experiments_logs/.
-./npy/.
+./npy
+
+*.npy
