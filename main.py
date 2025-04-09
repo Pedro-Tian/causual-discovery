@@ -318,7 +318,8 @@ if __name__ == '__main__':
         # 根据 markov_blankets 分割 true_dag 和 X
         sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
 
-        sub_causal_matrix_list = []
+        sub_causal_matrix_list_befroe = []
+        sub_causal_matrix_list_after = []
         for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
                                                          sub_true_dag_list, 
                                                          sub_nodes_list)):
@@ -337,21 +338,30 @@ if __name__ == '__main__':
             logger.info(f"sub_met after prunning {sub_met.metrics if sub_met else None}")
             
             # 剪枝前
-            sub_causal_matrix_list.append(sub_causal_matrix_order)
+            sub_causal_matrix_list_befroe.append(sub_causal_matrix_order)
+            # 剪枝后
+            sub_causal_matrix_list_after.append(sub_causal_matrix)
+
         
         # merge 
-        merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag)
+        merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
         # np.save('merged_causal_matrix.npy', merged_causal_matrix)
-        logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
+        # logger.info(f"merged_causal_matrix\n{merged_causal_matrix}")
         # 四舍五入
         # merged_causal_matrix = np.around(merged_causal_matrix).astype(np.int64)
         # 向上取整
         # merged_causal_matrix = np.ceil(merged_causal_matrix).astype(np.int64)
         merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
-        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}.npy", merge_DAG)
+        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
         merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
         logger.info(f"merged_met  before prunning {merged_met.metrics}")
-        # np.save('test_matrix.npy', merged_causal_matrix)
+
+        merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
+        merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
+        merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+        logger.info(f"merged_met  after prunning {merged_met.metrics}")
+        
         # TODO merge且保证是DAG
 
         # try:
