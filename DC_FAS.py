@@ -291,7 +291,7 @@ if __name__ == '__main__':
     print(args.type, args.h, args.nodes, args.model)
 
     for _ in range(args.repeat):
-        print(_+1)
+        logger.info(f"\n================ repeat number {_+1} ====================")
         if args.type == 'ER':
             weighted_random_dag = DAG.erdos_renyi(n_nodes=args.nodes, n_edges=n_edges,
                                                 weight_range=(0.5, 2.0), seed=1000+_*100)
@@ -372,6 +372,8 @@ if __name__ == '__main__':
             mmbef['time_sub_max'] = time_subgraph_max
             mmbef['time_sub_tot'] = time_subgraph_tot
             mmbef['time_FAS'] = time_FAS_before
+            mmbef['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_before
+            mmbef['time_tot'] = time_MB+time_subgraph_tot+time_FAS_before
             res_before_prunning.append(mmbef)
         if merged_met_after:
             mmaft = merged_met_after.metrics
@@ -380,6 +382,8 @@ if __name__ == '__main__':
             mmaft['time_sub_max'] = time_subgraph_max
             mmaft['time_sub_tot'] = time_subgraph_tot
             mmaft['time_FAS'] = time_FAS_after
+            mmaft['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_after
+            mmaft['time_tot'] = time_MB+time_subgraph_tot+time_FAS_after
             res_after_prunning.append(mmaft)
 
 

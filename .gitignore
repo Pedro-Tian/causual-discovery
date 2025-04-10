@@ -1,7 +1,6 @@
 ./dodiscover/.
 ./gcastle/.
 *.sh
-./experiments_logs/.
-./npy
-
+# ./experiments_logs/*
+./npy/*.npy
 *.npy
