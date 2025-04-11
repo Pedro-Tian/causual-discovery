@@ -27,8 +27,8 @@ python DC_FAS.py --repeat 10 --nodes 30 --h 4
 
 @REM python DC_FAS.py --repeat 10 --nodes 50 --h 2
 @REM python DC_FAS.py --repeat 10 --nodes 50 --h 3
-python DC_FAS.py --repeat 10 --nodes 50 --h 4
-python DC_FAS.py --repeat 10 --nodes 50 --h 5
+@REM python DC_FAS.py --repeat 10 --nodes 50 --h 4
+@REM python DC_FAS.py --repeat 10 --nodes 50 --h 5
 python DC_FAS.py --repeat 10 --nodes 50 --h 2 --type SF
 python DC_FAS.py --repeat 10 --nodes 50 --h 3 --type SF
 python DC_FAS.py --repeat 10 --nodes 50 --h 4 --type SF

@@ -172,6 +172,7 @@ def split_graph(markov_blankets, true_dag, X):
             sub_X_list.append(None)
             sub_true_dag_list.append(None)
             sub_nodes_list.append(None)
+            continue
         # 把节点 i 自己也加进去
         nodes = set(blanket_indices)
         nodes.add(i)
