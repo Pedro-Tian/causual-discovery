@@ -1,0 +1,517 @@
+[2025-04-09 15:56:55,074] 
+===  0-th graph ===
+[2025-04-09 15:56:55,074] 3 Nodes of Markov blanket: [0, 6, 8]
+[2025-04-09 15:56:57,220] sub_met2 before prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:56:57,220] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:56:57,221] 
+===  1-th graph ===
+[2025-04-09 15:56:57,221] 8 Nodes of Markov blanket: [1, 2, 3, 4, 6, 7, 8, 9]
+[2025-04-09 15:57:14,005] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 16, 'nnz': 28, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 15:57:14,025] sub_met after prunning {'fdr': 0.0769, 'tpr': 1.0, 'fpr': 0.0625, 'shd': 1, 'nnz': 13, 'precision': 0.9231, 'recall': 1.0, 'F1': 0.96, 'gscore': 0.9167}
+[2025-04-09 15:57:14,025] 
+===  2-th graph ===
+[2025-04-09 15:57:14,025] 3 Nodes of Markov blanket: [1, 2, 7]
+[2025-04-09 15:57:16,938] sub_met2 before prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:16,938] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:16,938] 
+===  3-th graph ===
+[2025-04-09 15:57:16,938] 3 Nodes of Markov blanket: [1, 3, 4]
+[2025-04-09 15:57:20,149] sub_met2 before prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:20,149] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:20,149] 
+===  4-th graph ===
+[2025-04-09 15:57:20,149] 5 Nodes of Markov blanket: [1, 3, 4, 5, 9]
+[2025-04-09 15:57:27,485] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 15:57:27,485] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 0.2, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 15:57:27,485] 
+===  5-th graph ===
+[2025-04-09 15:57:27,485] 4 Nodes of Markov blanket: [4, 5, 6, 8]
+[2025-04-09 15:57:31,858] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 0.8, 'fpr': 2.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 0.8, 'F1': 0.7273, 'gscore': 0.4}
+[2025-04-09 15:57:31,858] sub_met after prunning {'fdr': 0.2, 'tpr': 0.8, 'fpr': 1.0, 'shd': 1, 'nnz': 5, 'precision': 0.8, 'recall': 0.8, 'F1': 0.8, 'gscore': 0.6}
+[2025-04-09 15:57:31,858] 
+===  6-th graph ===
+[2025-04-09 15:57:31,858] 7 Nodes of Markov blanket: [0, 1, 5, 6, 7, 8, 9]
+[2025-04-09 15:57:39,925] sub_met2 before prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 1.0, 'shd': 9, 'nnz': 21, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 15:57:39,925] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.2222, 'shd': 2, 'nnz': 14, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 15:57:39,925] 
+===  7-th graph ===
+[2025-04-09 15:57:39,925] 4 Nodes of Markov blanket: [1, 2, 6, 7]
+[2025-04-09 15:57:44,066] sub_met2 before prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 15:57:44,066] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 5, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:44,066] 
+===  8-th graph ===
+[2025-04-09 15:57:44,066] 5 Nodes of Markov blanket: [0, 1, 5, 6, 8]
+[2025-04-09 15:57:49,278] sub_met2 before prunning {'fdr': 0.2, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 10, 'precision': 0.8, 'recall': 1.0, 'F1': 0.8889, 'gscore': 0.75}
+[2025-04-09 15:57:49,278] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 8, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:49,278] 
+===  9-th graph ===
+[2025-04-09 15:57:49,278] 4 Nodes of Markov blanket: [1, 4, 6, 9]
+[2025-04-09 15:57:53,061] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 15:57:53,062] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 4, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:57:53,065] merged_met_before  before prunning {'fdr': 0.5135, 'tpr': 0.9474, 'fpr': 0.7308, 'shd': 20, 'nnz': 37, 'precision': 0.4865, 'recall': 0.9474, 'F1': 0.6429, 'gscore': 0.0}
+[2025-04-09 15:57:53,070] merged_met_after  after prunning {'fdr': 0.1, 'tpr': 0.9474, 'fpr': 0.0769, 'shd': 3, 'nnz': 20, 'precision': 0.9, 'recall': 0.9474, 'F1': 0.9231, 'gscore': 0.8421}
+[2025-04-09 15:57:53,078] 
+===  0-th graph ===
+[2025-04-09 15:57:53,078] 7 Nodes of Markov blanket: [0, 1, 2, 4, 5, 7, 9]
+[2025-04-09 15:58:04,051] sub_met2 before prunning {'fdr': 0.619, 'tpr': 1.0, 'fpr': 1.0, 'shd': 13, 'nnz': 21, 'precision': 0.381, 'recall': 1.0, 'F1': 0.5517, 'gscore': 0.0}
+[2025-04-09 15:58:04,055] sub_met after prunning {'fdr': 0.5625, 'tpr': 0.875, 'fpr': 0.6923, 'shd': 10, 'nnz': 16, 'precision': 0.4375, 'recall': 0.875, 'F1': 0.5833, 'gscore': 0.0}
+[2025-04-09 15:58:04,055] 
+===  1-th graph ===
+[2025-04-09 15:58:04,055] 8 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 8, 9]
+[2025-04-09 15:58:14,929] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 16, 'nnz': 28, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 15:58:14,929] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.125, 'shd': 2, 'nnz': 14, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 15:58:14,930] 
+===  2-th graph ===
+[2025-04-09 15:58:14,930] 4 Nodes of Markov blanket: [0, 1, 2, 8]
+[2025-04-09 15:58:21,040] sub_met2 before prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 15:58:21,040] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 5, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:58:21,040] 
+===  3-th graph ===
+[2025-04-09 15:58:21,040] 5 Nodes of Markov blanket: [1, 3, 4, 5, 6]
+[2025-04-09 15:58:25,868] sub_met2 before prunning {'fdr': 0.8, 'tpr': 1.0, 'fpr': 1.0, 'shd': 8, 'nnz': 10, 'precision': 0.2, 'recall': 1.0, 'F1': 0.3333, 'gscore': 0.0}
+[2025-04-09 15:58:25,868] sub_met after prunning {'fdr': 0.6667, 'tpr': 1.0, 'fpr': 0.5, 'shd': 4, 'nnz': 6, 'precision': 0.3333, 'recall': 1.0, 'F1': 0.5, 'gscore': 0.0}
+[2025-04-09 15:58:25,868] 
+===  4-th graph ===
+[2025-04-09 15:58:25,868] 7 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 9]
+[2025-04-09 15:58:34,492] sub_met2 before prunning {'fdr': 0.619, 'tpr': 1.0, 'fpr': 1.0, 'shd': 13, 'nnz': 21, 'precision': 0.381, 'recall': 1.0, 'F1': 0.5517, 'gscore': 0.0}
+[2025-04-09 15:58:34,492] sub_met after prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 0.4615, 'shd': 6, 'nnz': 14, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 15:58:34,492] 
+===  5-th graph ===
+[2025-04-09 15:58:34,492] 7 Nodes of Markov blanket: [0, 1, 3, 4, 5, 8, 9]
+[2025-04-09 15:58:42,385] sub_met2 before prunning {'fdr': 0.5238, 'tpr': 1.0, 'fpr': 1.0, 'shd': 11, 'nnz': 21, 'precision': 0.4762, 'recall': 1.0, 'F1': 0.6452, 'gscore': 0.0}
+[2025-04-09 15:58:42,385] sub_met after prunning {'fdr': 0.1818, 'tpr': 0.9, 'fpr': 0.1818, 'shd': 3, 'nnz': 11, 'precision': 0.8182, 'recall': 0.9, 'F1': 0.8571, 'gscore': 0.7}
+[2025-04-09 15:58:42,385] 
+===  6-th graph ===
+[2025-04-09 15:58:42,385] 4 Nodes of Markov blanket: [3, 4, 6, 7]
+[2025-04-09 15:58:45,991] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 15:58:45,991] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 4, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 15:58:45,991] 
+===  7-th graph ===
+[2025-04-09 15:58:45,991] 3 Nodes of Markov blanket: [0, 6, 7]
+[2025-04-09 15:58:48,196] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 15:58:48,196] sub_met after prunning {'fdr': 0.0, 'tpr': 0.5, 'fpr': 0.0, 'shd': 1, 'nnz': 1, 'precision': 1.0, 'recall': 0.5, 'F1': 0.6667, 'gscore': 0.5}
+[2025-04-09 15:58:48,196] 
+===  8-th graph ===
+[2025-04-09 15:58:48,196] 4 Nodes of Markov blanket: [1, 2, 5, 8]
+[2025-04-09 15:58:51,695] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.6667, 'fpr': 1.3333, 'shd': 4, 'nnz': 6, 'precision': 0.3333, 'recall': 0.6667, 'F1': 0.4444, 'gscore': 0.0}
+[2025-04-09 15:58:51,695] sub_met after prunning {'fdr': 0.5, 'tpr': 0.6667, 'fpr': 0.6667, 'shd': 2, 'nnz': 4, 'precision': 0.5, 'recall': 0.6667, 'F1': 0.5714, 'gscore': 0.0}
+[2025-04-09 15:58:51,695] 
+===  9-th graph ===
+[2025-04-09 15:58:51,695] 5 Nodes of Markov blanket: [0, 1, 4, 5, 9]
+[2025-04-09 15:58:56,615] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 15:58:56,615] sub_met after prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 15:58:56,615] merged_met_before  before prunning {'fdr': 0.5484, 'tpr': 0.8235, 'fpr': 0.6071, 'shd': 20, 'nnz': 31, 'precision': 0.4516, 'recall': 0.8235, 'F1': 0.5833, 'gscore': 0.0}
+[2025-04-09 15:58:56,629] merged_met_after  after prunning {'fdr': 0.2778, 'tpr': 0.7647, 'fpr': 0.1786, 'shd': 9, 'nnz': 18, 'precision': 0.7222, 'recall': 0.7647, 'F1': 0.7429, 'gscore': 0.4706}
+[2025-04-09 15:58:56,638] 
+===  0-th graph ===
+[2025-04-09 15:58:56,638] 6 Nodes of Markov blanket: [0, 1, 2, 6, 7, 8]
+[2025-04-09 15:59:02,906] sub_met2 before prunning {'fdr': 0.4667, 'tpr': 0.8889, 'fpr': 1.1667, 'shd': 7, 'nnz': 15, 'precision': 0.5333, 'recall': 0.8889, 'F1': 0.6667, 'gscore': 0.1111}
+[2025-04-09 15:59:02,906] sub_met after prunning {'fdr': 0.3636, 'tpr': 0.7778, 'fpr': 0.6667, 'shd': 5, 'nnz': 11, 'precision': 0.6364, 'recall': 0.7778, 'F1': 0.7, 'gscore': 0.3333}
+[2025-04-09 15:59:02,906] 
+===  1-th graph ===
+[2025-04-09 15:59:02,906] 8 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 9]
+[2025-04-09 15:59:12,479] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 0.8571, 'fpr': 1.1429, 'shd': 16, 'nnz': 28, 'precision': 0.4286, 'recall': 0.8571, 'F1': 0.5714, 'gscore': 0.0}
+[2025-04-09 15:59:12,479] sub_met after prunning {'fdr': 0.45, 'tpr': 0.7857, 'fpr': 0.6429, 'shd': 10, 'nnz': 20, 'precision': 0.55, 'recall': 0.7857, 'F1': 0.6471, 'gscore': 0.1429}
+[2025-04-09 15:59:12,479] 
+===  2-th graph ===
+[2025-04-09 15:59:12,479] 9 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 8, 9]
+[2025-04-09 15:59:24,218] sub_met2 before prunning {'fdr': 0.6111, 'tpr': 0.875, 'fpr': 1.1, 'shd': 22, 'nnz': 36, 'precision': 0.3889, 'recall': 0.875, 'F1': 0.5385, 'gscore': 0.0}
+[2025-04-09 15:59:24,218] sub_met after prunning {'fdr': 0.3913, 'tpr': 0.875, 'fpr': 0.45, 'shd': 9, 'nnz': 23, 'precision': 0.6087, 'recall': 0.875, 'F1': 0.7179, 'gscore': 0.3125}
+[2025-04-09 15:59:24,218] 
+===  3-th graph ===
+[2025-04-09 15:59:24,218] 8 Nodes of Markov blanket: [1, 2, 3, 5, 6, 7, 8, 9]
+[2025-04-09 15:59:34,186] sub_met2 before prunning {'fdr': 0.6071, 'tpr': 1.0, 'fpr': 1.0, 'shd': 17, 'nnz': 28, 'precision': 0.3929, 'recall': 1.0, 'F1': 0.5641, 'gscore': 0.0}
+[2025-04-09 15:59:34,186] sub_met after prunning {'fdr': 0.2667, 'tpr': 1.0, 'fpr': 0.2353, 'shd': 4, 'nnz': 15, 'precision': 0.7333, 'recall': 1.0, 'F1': 0.8462, 'gscore': 0.6364}
+[2025-04-09 15:59:34,186] 
+===  4-th graph ===
+[2025-04-09 15:59:34,186] 6 Nodes of Markov blanket: [1, 2, 4, 5, 6, 9]
+[2025-04-09 15:59:40,560] sub_met2 before prunning {'fdr': 0.5333, 'tpr': 0.875, 'fpr': 1.1429, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 0.875, 'F1': 0.6087, 'gscore': 0.0}
+[2025-04-09 15:59:40,560] sub_met after prunning {'fdr': 0.4167, 'tpr': 0.875, 'fpr': 0.7143, 'shd': 5, 'nnz': 12, 'precision': 0.5833, 'recall': 0.875, 'F1': 0.7, 'gscore': 0.25}
+[2025-04-09 15:59:40,561] 
+===  5-th graph ===
+[2025-04-09 15:59:40,561] 9 Nodes of Markov blanket: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 15:59:52,850] sub_met2 before prunning {'fdr': 0.6944, 'tpr': 0.8462, 'fpr': 1.087, 'shd': 25, 'nnz': 36, 'precision': 0.3056, 'recall': 0.8462, 'F1': 0.449, 'gscore': 0.0}
+[2025-04-09 15:59:52,850] sub_met after prunning {'fdr': 0.5217, 'tpr': 0.8462, 'fpr': 0.5217, 'shd': 12, 'nnz': 23, 'precision': 0.4783, 'recall': 0.8462, 'F1': 0.6111, 'gscore': 0.0}
+[2025-04-09 15:59:52,850] 
+===  6-th graph ===
+[2025-04-09 15:59:52,851] 9 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 8, 9]
+[2025-04-09 16:00:05,503] sub_met2 before prunning {'fdr': 0.6111, 'tpr': 0.875, 'fpr': 1.1, 'shd': 22, 'nnz': 36, 'precision': 0.3889, 'recall': 0.875, 'F1': 0.5385, 'gscore': 0.0}
+[2025-04-09 16:00:05,515] sub_met after prunning {'fdr': 0.3913, 'tpr': 0.875, 'fpr': 0.45, 'shd': 9, 'nnz': 23, 'precision': 0.6087, 'recall': 0.875, 'F1': 0.7179, 'gscore': 0.3125}
+[2025-04-09 16:00:05,515] 
+===  7-th graph ===
+[2025-04-09 16:00:05,515] 5 Nodes of Markov blanket: [0, 3, 5, 7, 8]
+[2025-04-09 16:00:10,901] sub_met2 before prunning {'fdr': 0.2, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 10, 'precision': 0.8, 'recall': 1.0, 'F1': 0.8889, 'gscore': 0.75}
+[2025-04-09 16:00:10,901] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 8, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:00:10,901] 
+===  8-th graph ===
+[2025-04-09 16:00:10,901] 7 Nodes of Markov blanket: [0, 2, 3, 5, 6, 7, 8]
+[2025-04-09 16:00:19,536] sub_met2 before prunning {'fdr': 0.4762, 'tpr': 1.0, 'fpr': 1.0, 'shd': 10, 'nnz': 21, 'precision': 0.5238, 'recall': 1.0, 'F1': 0.6875, 'gscore': 0.0909}
+[2025-04-09 16:00:19,536] sub_met after prunning {'fdr': 0.0833, 'tpr': 1.0, 'fpr': 0.1, 'shd': 1, 'nnz': 12, 'precision': 0.9167, 'recall': 1.0, 'F1': 0.9565, 'gscore': 0.9091}
+[2025-04-09 16:00:19,536] 
+===  9-th graph ===
+[2025-04-09 16:00:19,536] 7 Nodes of Markov blanket: [1, 2, 3, 4, 5, 6, 9]
+[2025-04-09 16:00:27,767] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.7778, 'fpr': 1.1667, 'shd': 14, 'nnz': 21, 'precision': 0.3333, 'recall': 0.7778, 'F1': 0.4667, 'gscore': 0.0}
+[2025-04-09 16:00:27,767] sub_met after prunning {'fdr': 0.5333, 'tpr': 0.7778, 'fpr': 0.6667, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 0.7778, 'F1': 0.5833, 'gscore': 0.0}
+[2025-04-09 16:00:27,772] merged_met_before  before prunning {'fdr': 0.4688, 'tpr': 0.85, 'fpr': 0.6, 'shd': 18, 'nnz': 32, 'precision': 0.5312, 'recall': 0.85, 'F1': 0.6538, 'gscore': 0.1}
+[2025-04-09 16:00:27,776] merged_met_after  after prunning {'fdr': 0.25, 'tpr': 0.75, 'fpr': 0.2, 'shd': 10, 'nnz': 20, 'precision': 0.75, 'recall': 0.75, 'F1': 0.75, 'gscore': 0.5}
+[2025-04-09 16:00:27,784] 
+===  0-th graph ===
+[2025-04-09 16:00:27,784] 7 Nodes of Markov blanket: [0, 3, 5, 6, 7, 8, 9]
+[2025-04-09 16:00:37,156] sub_met2 before prunning {'fdr': 0.4762, 'tpr': 0.9167, 'fpr': 1.1111, 'shd': 10, 'nnz': 21, 'precision': 0.5238, 'recall': 0.9167, 'F1': 0.6667, 'gscore': 0.0833}
+[2025-04-09 16:00:37,156] sub_met after prunning {'fdr': 0.3125, 'tpr': 0.9167, 'fpr': 0.5556, 'shd': 5, 'nnz': 16, 'precision': 0.6875, 'recall': 0.9167, 'F1': 0.7857, 'gscore': 0.5}
+[2025-04-09 16:00:37,156] 
+===  1-th graph ===
+[2025-04-09 16:00:37,156] 7 Nodes of Markov blanket: [1, 2, 3, 4, 5, 6, 8]
+[2025-04-09 16:00:45,204] sub_met2 before prunning {'fdr': 0.381, 'tpr': 1.0, 'fpr': 1.0, 'shd': 8, 'nnz': 21, 'precision': 0.619, 'recall': 1.0, 'F1': 0.7647, 'gscore': 0.3846}
+[2025-04-09 16:00:45,204] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 13, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:00:45,204] 
+===  2-th graph ===
+[2025-04-09 16:00:45,204] 5 Nodes of Markov blanket: [1, 2, 3, 6, 9]
+[2025-04-09 16:00:50,309] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:00:50,309] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 0.2, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:00:50,309] 
+===  3-th graph ===
+[2025-04-09 16:00:50,325] 5 Nodes of Markov blanket: [0, 1, 2, 3, 8]
+[2025-04-09 16:00:55,354] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:00:55,354] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 0.2, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:00:55,354] 
+===  4-th graph ===
+[2025-04-09 16:00:55,354] 5 Nodes of Markov blanket: [1, 4, 5, 6, 8]
+[2025-04-09 16:01:00,459] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:01:00,459] sub_met after prunning {'fdr': 0.375, 'tpr': 1.0, 'fpr': 0.6, 'shd': 3, 'nnz': 8, 'precision': 0.625, 'recall': 1.0, 'F1': 0.7692, 'gscore': 0.4}
+[2025-04-09 16:01:00,459] 
+===  5-th graph ===
+[2025-04-09 16:01:00,459] 8 Nodes of Markov blanket: [0, 1, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:01:10,275] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 0.9231, 'fpr': 1.0667, 'shd': 16, 'nnz': 28, 'precision': 0.4286, 'recall': 0.9231, 'F1': 0.5854, 'gscore': 0.0}
+[2025-04-09 16:01:10,276] sub_met after prunning {'fdr': 0.4286, 'tpr': 0.9231, 'fpr': 0.6, 'shd': 9, 'nnz': 21, 'precision': 0.5714, 'recall': 0.9231, 'F1': 0.7059, 'gscore': 0.2308}
+[2025-04-09 16:01:10,276] 
+===  6-th graph ===
+[2025-04-09 16:01:10,276] 7 Nodes of Markov blanket: [0, 1, 2, 4, 5, 6, 9]
+[2025-04-09 16:01:18,452] sub_met2 before prunning {'fdr': 0.7143, 'tpr': 0.75, 'fpr': 1.1538, 'shd': 15, 'nnz': 21, 'precision': 0.2857, 'recall': 0.75, 'F1': 0.4138, 'gscore': 0.0}
+[2025-04-09 16:01:18,452] sub_met after prunning {'fdr': 0.625, 'tpr': 0.75, 'fpr': 0.7692, 'shd': 10, 'nnz': 16, 'precision': 0.375, 'recall': 0.75, 'F1': 0.5, 'gscore': 0.0}
+[2025-04-09 16:01:18,452] 
+===  7-th graph ===
+[2025-04-09 16:01:18,452] 5 Nodes of Markov blanket: [0, 5, 7, 8, 9]
+[2025-04-09 16:01:23,389] sub_met2 before prunning {'fdr': 0.4, 'tpr': 1.0, 'fpr': 1.0, 'shd': 4, 'nnz': 10, 'precision': 0.6, 'recall': 1.0, 'F1': 0.75, 'gscore': 0.3333}
+[2025-04-09 16:01:23,389] sub_met after prunning {'fdr': 0.4, 'tpr': 1.0, 'fpr': 1.0, 'shd': 4, 'nnz': 10, 'precision': 0.6, 'recall': 1.0, 'F1': 0.75, 'gscore': 0.3333}
+[2025-04-09 16:01:23,389] 
+===  8-th graph ===
+[2025-04-09 16:01:23,389] 8 Nodes of Markov blanket: [0, 1, 3, 4, 5, 7, 8, 9]
+[2025-04-09 16:01:33,214] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 14, 'nnz': 28, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:01:33,214] sub_met after prunning {'fdr': 0.3913, 'tpr': 1.0, 'fpr': 0.6429, 'shd': 9, 'nnz': 23, 'precision': 0.6087, 'recall': 1.0, 'F1': 0.7568, 'gscore': 0.3571}
+[2025-04-09 16:01:33,214] 
+===  9-th graph ===
+[2025-04-09 16:01:33,214] 7 Nodes of Markov blanket: [0, 2, 5, 6, 7, 8, 9]
+[2025-04-09 16:01:41,023] sub_met2 before prunning {'fdr': 0.5238, 'tpr': 0.9091, 'fpr': 1.1, 'shd': 11, 'nnz': 21, 'precision': 0.4762, 'recall': 0.9091, 'F1': 0.625, 'gscore': 0.0}
+[2025-04-09 16:01:41,023] sub_met after prunning {'fdr': 0.375, 'tpr': 0.9091, 'fpr': 0.6, 'shd': 6, 'nnz': 16, 'precision': 0.625, 'recall': 0.9091, 'F1': 0.7407, 'gscore': 0.3636}
+[2025-04-09 16:01:41,028] merged_met_before  before prunning {'fdr': 0.3548, 'tpr': 0.8696, 'fpr': 0.5, 'shd': 14, 'nnz': 31, 'precision': 0.6452, 'recall': 0.8696, 'F1': 0.7407, 'gscore': 0.3913}
+[2025-04-09 16:01:41,033] merged_met_after  after prunning {'fdr': 0.0476, 'tpr': 0.8696, 'fpr': 0.0455, 'shd': 4, 'nnz': 21, 'precision': 0.9524, 'recall': 0.8696, 'F1': 0.9091, 'gscore': 0.8261}
+[2025-04-09 16:01:41,041] 
+===  0-th graph ===
+[2025-04-09 16:01:41,042] 3 Nodes of Markov blanket: [0, 3, 8]
+[2025-04-09 16:01:43,458] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:01:43,458] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 2, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:01:43,458] 
+===  1-th graph ===
+[2025-04-09 16:01:43,458] 6 Nodes of Markov blanket: [1, 3, 4, 6, 8, 9]
+[2025-04-09 16:01:49,721] sub_met2 before prunning {'fdr': 0.5333, 'tpr': 0.875, 'fpr': 1.1429, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 0.875, 'F1': 0.6087, 'gscore': 0.0}
+[2025-04-09 16:01:49,721] sub_met after prunning {'fdr': 0.3636, 'tpr': 0.875, 'fpr': 0.5714, 'shd': 4, 'nnz': 11, 'precision': 0.6364, 'recall': 0.875, 'F1': 0.7368, 'gscore': 0.375}
+[2025-04-09 16:01:49,721] 
+===  2-th graph ===
+[2025-04-09 16:01:49,721] 4 Nodes of Markov blanket: [2, 3, 4, 5]
+[2025-04-09 16:01:53,320] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:01:53,320] sub_met after prunning {'fdr': 0.2, 'tpr': 1.0, 'fpr': 0.5, 'shd': 1, 'nnz': 5, 'precision': 0.8, 'recall': 1.0, 'F1': 0.8889, 'gscore': 0.75}
+[2025-04-09 16:01:53,320] 
+===  3-th graph ===
+[2025-04-09 16:01:53,320] 7 Nodes of Markov blanket: [0, 1, 2, 3, 5, 6, 9]
+[2025-04-09 16:02:01,174] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 16:02:01,175] sub_met after prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 0.75, 'shd': 9, 'nnz': 18, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:02:01,175] 
+===  4-th graph ===
+[2025-04-09 16:02:01,175] 7 Nodes of Markov blanket: [1, 2, 4, 5, 6, 7, 8]
+[2025-04-09 16:02:09,190] sub_met2 before prunning {'fdr': 0.619, 'tpr': 1.0, 'fpr': 1.0, 'shd': 13, 'nnz': 21, 'precision': 0.381, 'recall': 1.0, 'F1': 0.5517, 'gscore': 0.0}
+[2025-04-09 16:02:09,190] sub_met after prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 0.4615, 'shd': 6, 'nnz': 14, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 16:02:09,190] 
+===  5-th graph ===
+[2025-04-09 16:02:09,190] 7 Nodes of Markov blanket: [2, 3, 4, 5, 6, 8, 9]
+[2025-04-09 16:02:17,256] sub_met2 before prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 1.0, 'shd': 9, 'nnz': 21, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 16:02:17,256] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.2222, 'shd': 2, 'nnz': 14, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 16:02:17,256] 
+===  6-th graph ===
+[2025-04-09 16:02:17,256] 7 Nodes of Markov blanket: [1, 3, 4, 5, 6, 7, 8]
+[2025-04-09 16:02:25,266] sub_met2 before prunning {'fdr': 0.619, 'tpr': 1.0, 'fpr': 1.0, 'shd': 13, 'nnz': 21, 'precision': 0.381, 'recall': 1.0, 'F1': 0.5517, 'gscore': 0.0}
+[2025-04-09 16:02:25,267] sub_met after prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 0.3077, 'shd': 4, 'nnz': 12, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:02:25,267] 
+===  7-th graph ===
+[2025-04-09 16:02:25,267] 3 Nodes of Markov blanket: [4, 6, 7]
+[2025-04-09 16:02:27,506] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:02:27,506] sub_met after prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:02:27,506] 
+===  8-th graph ===
+[2025-04-09 16:02:27,506] 7 Nodes of Markov blanket: [0, 1, 4, 5, 6, 8, 9]
+[2025-04-09 16:02:35,494] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 0.9, 'fpr': 1.0909, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 0.9, 'F1': 0.5806, 'gscore': 0.0}
+[2025-04-09 16:02:35,494] sub_met after prunning {'fdr': 0.5, 'tpr': 0.9, 'fpr': 0.8182, 'shd': 9, 'nnz': 18, 'precision': 0.5, 'recall': 0.9, 'F1': 0.6429, 'gscore': 0.0}
+[2025-04-09 16:02:35,494] 
+===  9-th graph ===
+[2025-04-09 16:02:35,494] 5 Nodes of Markov blanket: [1, 3, 5, 8, 9]
+[2025-04-09 16:02:40,531] sub_met2 before prunning {'fdr': 0.6, 'tpr': 1.0, 'fpr': 1.0, 'shd': 6, 'nnz': 10, 'precision': 0.4, 'recall': 1.0, 'F1': 0.5714, 'gscore': 0.0}
+[2025-04-09 16:02:40,531] sub_met after prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 0.5, 'shd': 3, 'nnz': 7, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 16:02:40,540] merged_met_before  before prunning {'fdr': 0.5, 'tpr': 0.9444, 'fpr': 0.6296, 'shd': 18, 'nnz': 34, 'precision': 0.5, 'recall': 0.9444, 'F1': 0.6538, 'gscore': 0.0}
+[2025-04-09 16:02:40,545] merged_met_after  after prunning {'fdr': 0.15, 'tpr': 0.9444, 'fpr': 0.1111, 'shd': 4, 'nnz': 20, 'precision': 0.85, 'recall': 0.9444, 'F1': 0.8947, 'gscore': 0.7778}
+[2025-04-09 16:02:40,552] 
+===  0-th graph ===
+[2025-04-09 16:02:40,552] 4 Nodes of Markov blanket: [0, 4, 5, 6]
+[2025-04-09 16:02:45,801] sub_met2 before prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:02:45,801] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:02:45,801] 
+===  1-th graph ===
+[2025-04-09 16:02:45,802] 6 Nodes of Markov blanket: [1, 2, 5, 6, 8, 9]
+[2025-04-09 16:02:52,448] sub_met2 before prunning {'fdr': 0.4, 'tpr': 1.0, 'fpr': 1.0, 'shd': 6, 'nnz': 15, 'precision': 0.6, 'recall': 1.0, 'F1': 0.75, 'gscore': 0.3333}
+[2025-04-09 16:02:52,448] sub_met after prunning {'fdr': 0.3571, 'tpr': 1.0, 'fpr': 0.8333, 'shd': 5, 'nnz': 14, 'precision': 0.6429, 'recall': 1.0, 'F1': 0.7826, 'gscore': 0.4444}
+[2025-04-09 16:02:52,448] 
+===  2-th graph ===
+[2025-04-09 16:02:52,448] 4 Nodes of Markov blanket: [1, 2, 7, 8]
+[2025-04-09 16:02:56,276] sub_met2 before prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:02:56,276] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 6, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:02:56,276] 
+===  3-th graph ===
+[2025-04-09 16:02:56,276] 5 Nodes of Markov blanket: [3, 5, 6, 7, 8]
+[2025-04-09 16:03:02,888] sub_met2 before prunning {'fdr': 0.3, 'tpr': 1.0, 'fpr': 1.0, 'shd': 3, 'nnz': 10, 'precision': 0.7, 'recall': 1.0, 'F1': 0.8235, 'gscore': 0.5714}
+[2025-04-09 16:03:02,888] sub_met after prunning {'fdr': 0.3, 'tpr': 1.0, 'fpr': 1.0, 'shd': 3, 'nnz': 10, 'precision': 0.7, 'recall': 1.0, 'F1': 0.8235, 'gscore': 0.5714}
+[2025-04-09 16:03:02,888] 
+===  4-th graph ===
+[2025-04-09 16:03:02,888] 6 Nodes of Markov blanket: [0, 4, 5, 6, 7, 9]
+[2025-04-09 16:03:11,114] sub_met2 before prunning {'fdr': 0.4667, 'tpr': 1.0, 'fpr': 1.0, 'shd': 7, 'nnz': 15, 'precision': 0.5333, 'recall': 1.0, 'F1': 0.6957, 'gscore': 0.125}
+[2025-04-09 16:03:11,115] sub_met after prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 0.8571, 'shd': 6, 'nnz': 14, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 16:03:11,115] 
+===  5-th graph ===
+[2025-04-09 16:03:11,115] 7 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 8]
+[2025-04-09 16:03:19,338] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 0.9333, 'fpr': 1.1667, 'shd': 7, 'nnz': 21, 'precision': 0.6667, 'recall': 0.9333, 'F1': 0.7778, 'gscore': 0.4667}
+[2025-04-09 16:03:19,338] sub_met after prunning {'fdr': 0.2222, 'tpr': 0.9333, 'fpr': 0.6667, 'shd': 4, 'nnz': 18, 'precision': 0.7778, 'recall': 0.9333, 'F1': 0.8485, 'gscore': 0.6667}
+[2025-04-09 16:03:19,338] 
+===  6-th graph ===
+[2025-04-09 16:03:19,338] 9 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:03:31,266] sub_met2 before prunning {'fdr': 0.3889, 'tpr': 1.0, 'fpr': 1.0, 'shd': 14, 'nnz': 36, 'precision': 0.6111, 'recall': 1.0, 'F1': 0.7586, 'gscore': 0.3636}
+[2025-04-09 16:03:31,270] sub_met after prunning {'fdr': 0.0435, 'tpr': 1.0, 'fpr': 0.0714, 'shd': 1, 'nnz': 23, 'precision': 0.9565, 'recall': 1.0, 'F1': 0.9778, 'gscore': 0.9545}
+[2025-04-09 16:03:31,270] 
+===  7-th graph ===
+[2025-04-09 16:03:31,270] 7 Nodes of Markov blanket: [2, 3, 4, 6, 7, 8, 9]
+[2025-04-09 16:03:39,627] sub_met2 before prunning {'fdr': 0.4286, 'tpr': 1.0, 'fpr': 1.0, 'shd': 9, 'nnz': 21, 'precision': 0.5714, 'recall': 1.0, 'F1': 0.7273, 'gscore': 0.25}
+[2025-04-09 16:03:39,627] sub_met after prunning {'fdr': 0.3889, 'tpr': 0.9167, 'fpr': 0.7778, 'shd': 8, 'nnz': 18, 'precision': 0.6111, 'recall': 0.9167, 'F1': 0.7333, 'gscore': 0.3333}
+[2025-04-09 16:03:39,627] 
+===  8-th graph ===
+[2025-04-09 16:03:39,627] 8 Nodes of Markov blanket: [1, 2, 3, 5, 6, 7, 8, 9]
+[2025-04-09 16:03:50,613] sub_met2 before prunning {'fdr': 0.3571, 'tpr': 1.0, 'fpr': 1.0, 'shd': 10, 'nnz': 28, 'precision': 0.6429, 'recall': 1.0, 'F1': 0.7826, 'gscore': 0.4444}
+[2025-04-09 16:03:50,613] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.3, 'shd': 3, 'nnz': 21, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 16:03:50,613] 
+===  9-th graph ===
+[2025-04-09 16:03:50,613] 6 Nodes of Markov blanket: [1, 4, 6, 7, 8, 9]
+[2025-04-09 16:03:57,371] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 15, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:03:57,371] sub_met after prunning {'fdr': 0.1667, 'tpr': 1.0, 'fpr': 0.4, 'shd': 2, 'nnz': 12, 'precision': 0.8333, 'recall': 1.0, 'F1': 0.9091, 'gscore': 0.8}
+[2025-04-09 16:03:57,382] merged_met_before  before prunning {'fdr': 0.2727, 'tpr': 0.96, 'fpr': 0.45, 'shd': 10, 'nnz': 33, 'precision': 0.7273, 'recall': 0.96, 'F1': 0.8276, 'gscore': 0.6}
+[2025-04-09 16:03:57,387] merged_met_after  after prunning {'fdr': 0.0769, 'tpr': 0.96, 'fpr': 0.1, 'shd': 3, 'nnz': 26, 'precision': 0.9231, 'recall': 0.96, 'F1': 0.9412, 'gscore': 0.88}
+[2025-04-09 16:03:57,393] 
+===  0-th graph ===
+[2025-04-09 16:03:57,393] 4 Nodes of Markov blanket: [0, 2, 3, 9]
+[2025-04-09 16:04:02,488] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 3, 'nnz': 6, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:04:02,488] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:02,488] 
+===  1-th graph ===
+[2025-04-09 16:04:02,488] 3 Nodes of Markov blanket: [1, 3, 6]
+[2025-04-09 16:04:05,620] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:04:05,620] sub_met after prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:04:05,621] 
+===  2-th graph ===
+[2025-04-09 16:04:05,621] 6 Nodes of Markov blanket: [0, 2, 3, 6, 7, 9]
+[2025-04-09 16:04:13,464] sub_met2 before prunning {'fdr': 0.6, 'tpr': 1.0, 'fpr': 1.0, 'shd': 9, 'nnz': 15, 'precision': 0.4, 'recall': 1.0, 'F1': 0.5714, 'gscore': 0.0}
+[2025-04-09 16:04:13,464] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.1111, 'shd': 1, 'nnz': 7, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 16:04:13,464] 
+===  3-th graph ===
+[2025-04-09 16:04:13,464] 6 Nodes of Markov blanket: [0, 1, 2, 3, 5, 6]
+[2025-04-09 16:04:21,169] sub_met2 before prunning {'fdr': 0.6, 'tpr': 0.8571, 'fpr': 1.125, 'shd': 9, 'nnz': 15, 'precision': 0.4, 'recall': 0.8571, 'F1': 0.5455, 'gscore': 0.0}
+[2025-04-09 16:04:21,169] sub_met after prunning {'fdr': 0.25, 'tpr': 0.8571, 'fpr': 0.25, 'shd': 2, 'nnz': 8, 'precision': 0.75, 'recall': 0.8571, 'F1': 0.8, 'gscore': 0.5714}
+[2025-04-09 16:04:21,169] 
+===  4-th graph ===
+[2025-04-09 16:04:21,170] 3 Nodes of Markov blanket: [4, 6, 8]
+[2025-04-09 16:04:23,674] sub_met2 before prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:23,674] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:23,674] 
+===  5-th graph ===
+[2025-04-09 16:04:23,674] 3 Nodes of Markov blanket: [3, 5, 6]
+[2025-04-09 16:04:26,230] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:04:26,230] sub_met after prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:04:26,230] 
+===  6-th graph ===
+[2025-04-09 16:04:26,230] 7 Nodes of Markov blanket: [1, 2, 3, 4, 5, 6, 8]
+[2025-04-09 16:04:34,863] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 16:04:34,863] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 9, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:34,863] 
+===  7-th graph ===
+[2025-04-09 16:04:34,863] 3 Nodes of Markov blanket: [2, 7, 9]
+[2025-04-09 16:04:37,306] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:04:37,306] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 2, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:37,306] 
+===  8-th graph ===
+[2025-04-09 16:04:37,306] 3 Nodes of Markov blanket: [4, 6, 8]
+[2025-04-09 16:04:40,702] sub_met2 before prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:40,703] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:40,703] 
+===  9-th graph ===
+[2025-04-09 16:04:40,703] 4 Nodes of Markov blanket: [0, 2, 7, 9]
+[2025-04-09 16:04:44,611] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 3, 'nnz': 6, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:04:44,611] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 3, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:04:44,617] merged_met_before  before prunning {'fdr': 0.6667, 'tpr': 0.7692, 'fpr': 0.625, 'shd': 23, 'nnz': 30, 'precision': 0.3333, 'recall': 0.7692, 'F1': 0.4651, 'gscore': 0.0}
+[2025-04-09 16:04:44,626] merged_met_after  after prunning {'fdr': 0.0, 'tpr': 0.8462, 'fpr': 0.0, 'shd': 2, 'nnz': 11, 'precision': 1.0, 'recall': 0.8462, 'F1': 0.9167, 'gscore': 0.8462}
+[2025-04-09 16:04:44,634] 
+===  0-th graph ===
+[2025-04-09 16:04:44,634] 8 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 8, 9]
+[2025-04-09 16:04:55,102] sub_met2 before prunning {'fdr': 0.4643, 'tpr': 0.9375, 'fpr': 1.0833, 'shd': 13, 'nnz': 28, 'precision': 0.5357, 'recall': 0.9375, 'F1': 0.6818, 'gscore': 0.125}
+[2025-04-09 16:04:55,102] sub_met after prunning {'fdr': 0.2222, 'tpr': 0.875, 'fpr': 0.3333, 'shd': 5, 'nnz': 18, 'precision': 0.7778, 'recall': 0.875, 'F1': 0.8235, 'gscore': 0.625}
+[2025-04-09 16:04:55,102] 
+===  1-th graph ===
+[2025-04-09 16:04:55,102] 8 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 7, 9]
+[2025-04-09 16:05:05,681] sub_met2 before prunning {'fdr': 0.5357, 'tpr': 1.0, 'fpr': 1.0, 'shd': 15, 'nnz': 28, 'precision': 0.4643, 'recall': 1.0, 'F1': 0.6341, 'gscore': 0.0}
+[2025-04-09 16:05:05,681] sub_met after prunning {'fdr': 0.2353, 'tpr': 1.0, 'fpr': 0.2667, 'shd': 4, 'nnz': 17, 'precision': 0.7647, 'recall': 1.0, 'F1': 0.8667, 'gscore': 0.6923}
+[2025-04-09 16:05:05,681] 
+===  2-th graph ===
+[2025-04-09 16:05:05,681] 3 Nodes of Markov blanket: [2, 3, 9]
+[2025-04-09 16:05:08,011] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:05:08,011] sub_met after prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:05:08,011] 
+===  3-th graph ===
+[2025-04-09 16:05:08,011] 9 Nodes of Markov blanket: [0, 1, 2, 3, 4, 6, 7, 8, 9]
+[2025-04-09 16:05:20,369] sub_met2 before prunning {'fdr': 0.5833, 'tpr': 1.0, 'fpr': 1.0, 'shd': 21, 'nnz': 36, 'precision': 0.4167, 'recall': 1.0, 'F1': 0.5882, 'gscore': 0.0}
+[2025-04-09 16:05:20,370] sub_met after prunning {'fdr': 0.0625, 'tpr': 1.0, 'fpr': 0.0476, 'shd': 1, 'nnz': 16, 'precision': 0.9375, 'recall': 1.0, 'F1': 0.9677, 'gscore': 0.9333}
+[2025-04-09 16:05:20,370] 
+===  4-th graph ===
+[2025-04-09 16:05:20,370] 5 Nodes of Markov blanket: [0, 1, 3, 4, 6]
+[2025-04-09 16:05:25,563] sub_met2 before prunning {'fdr': 0.4, 'tpr': 1.0, 'fpr': 1.0, 'shd': 4, 'nnz': 10, 'precision': 0.6, 'recall': 1.0, 'F1': 0.75, 'gscore': 0.3333}
+[2025-04-09 16:05:25,563] sub_met after prunning {'fdr': 0.1429, 'tpr': 1.0, 'fpr': 0.25, 'shd': 1, 'nnz': 7, 'precision': 0.8571, 'recall': 1.0, 'F1': 0.9231, 'gscore': 0.8333}
+[2025-04-09 16:05:25,573] 
+===  5-th graph ===
+[2025-04-09 16:05:25,573] 6 Nodes of Markov blanket: [0, 1, 5, 6, 8, 9]
+[2025-04-09 16:05:32,722] sub_met2 before prunning {'fdr': 0.4667, 'tpr': 0.8889, 'fpr': 1.1667, 'shd': 7, 'nnz': 15, 'precision': 0.5333, 'recall': 0.8889, 'F1': 0.6667, 'gscore': 0.1111}
+[2025-04-09 16:05:32,722] sub_met after prunning {'fdr': 0.3846, 'tpr': 0.8889, 'fpr': 0.8333, 'shd': 5, 'nnz': 13, 'precision': 0.6154, 'recall': 0.8889, 'F1': 0.7273, 'gscore': 0.3333}
+[2025-04-09 16:05:32,722] 
+===  6-th graph ===
+[2025-04-09 16:05:32,722] 8 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 8, 9]
+[2025-04-09 16:05:42,532] sub_met2 before prunning {'fdr': 0.4643, 'tpr': 0.9375, 'fpr': 1.0833, 'shd': 13, 'nnz': 28, 'precision': 0.5357, 'recall': 0.9375, 'F1': 0.6818, 'gscore': 0.125}
+[2025-04-09 16:05:42,532] sub_met after prunning {'fdr': 0.2222, 'tpr': 0.875, 'fpr': 0.3333, 'shd': 5, 'nnz': 18, 'precision': 0.7778, 'recall': 0.875, 'F1': 0.8235, 'gscore': 0.625}
+[2025-04-09 16:05:42,532] 
+===  7-th graph ===
+[2025-04-09 16:05:42,532] 4 Nodes of Markov blanket: [1, 3, 7, 8]
+[2025-04-09 16:05:46,276] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:05:46,276] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 4, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:05:46,276] 
+===  8-th graph ===
+[2025-04-09 16:05:46,276] 7 Nodes of Markov blanket: [0, 3, 5, 6, 7, 8, 9]
+[2025-04-09 16:05:54,666] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 0.9, 'fpr': 1.0909, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 0.9, 'F1': 0.5806, 'gscore': 0.0}
+[2025-04-09 16:05:54,666] sub_met after prunning {'fdr': 0.4667, 'tpr': 0.8, 'fpr': 0.6364, 'shd': 8, 'nnz': 15, 'precision': 0.5333, 'recall': 0.8, 'F1': 0.64, 'gscore': 0.1}
+[2025-04-09 16:05:54,666] 
+===  9-th graph ===
+[2025-04-09 16:05:54,666] 8 Nodes of Markov blanket: [0, 1, 2, 3, 5, 6, 8, 9]
+[2025-04-09 16:06:06,124] sub_met2 before prunning {'fdr': 0.4643, 'tpr': 0.9375, 'fpr': 1.0833, 'shd': 13, 'nnz': 28, 'precision': 0.5357, 'recall': 0.9375, 'F1': 0.6818, 'gscore': 0.125}
+[2025-04-09 16:06:06,124] sub_met after prunning {'fdr': 0.2632, 'tpr': 0.875, 'fpr': 0.4167, 'shd': 6, 'nnz': 19, 'precision': 0.7368, 'recall': 0.875, 'F1': 0.8, 'gscore': 0.5625}
+[2025-04-09 16:06:06,124] merged_met_before  before prunning {'fdr': 0.4545, 'tpr': 0.9, 'fpr': 0.6, 'shd': 17, 'nnz': 33, 'precision': 0.5455, 'recall': 0.9, 'F1': 0.6792, 'gscore': 0.15}
+[2025-04-09 16:06:06,135] merged_met_after  after prunning {'fdr': 0.0588, 'tpr': 0.8, 'fpr': 0.04, 'shd': 5, 'nnz': 17, 'precision': 0.9412, 'recall': 0.8, 'F1': 0.8649, 'gscore': 0.75}
+[2025-04-09 16:06:06,142] 
+===  0-th graph ===
+[2025-04-09 16:06:06,142] 4 Nodes of Markov blanket: [0, 1, 6, 7]
+[2025-04-09 16:06:09,654] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 2, 'nnz': 6, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:06:09,654] sub_met after prunning {'fdr': 0.2, 'tpr': 1.0, 'fpr': 0.5, 'shd': 1, 'nnz': 5, 'precision': 0.8, 'recall': 1.0, 'F1': 0.8889, 'gscore': 0.75}
+[2025-04-09 16:06:09,654] 
+===  1-th graph ===
+[2025-04-09 16:06:09,654] 5 Nodes of Markov blanket: [0, 1, 6, 7, 9]
+[2025-04-09 16:06:14,503] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:06:14,503] sub_met after prunning {'fdr': 0.375, 'tpr': 1.0, 'fpr': 0.6, 'shd': 3, 'nnz': 8, 'precision': 0.625, 'recall': 1.0, 'F1': 0.7692, 'gscore': 0.4}
+[2025-04-09 16:06:14,503] 
+===  2-th graph ===
+[2025-04-09 16:06:14,503] 7 Nodes of Markov blanket: [3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:06:22,426] sub_met2 before prunning {'fdr': 0.5238, 'tpr': 1.0, 'fpr': 1.0, 'shd': 11, 'nnz': 21, 'precision': 0.4762, 'recall': 1.0, 'F1': 0.6452, 'gscore': 0.0}
+[2025-04-09 16:06:22,427] sub_met after prunning {'fdr': 0.0909, 'tpr': 1.0, 'fpr': 0.0909, 'shd': 1, 'nnz': 11, 'precision': 0.9091, 'recall': 1.0, 'F1': 0.9524, 'gscore': 0.9}
+[2025-04-09 16:06:22,427] 
+===  3-th graph ===
+[2025-04-09 16:06:22,427] 6 Nodes of Markov blanket: [3, 4, 5, 6, 7, 9]
+[2025-04-09 16:06:28,767] sub_met2 before prunning {'fdr': 0.5333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 1.0, 'F1': 0.6364, 'gscore': 0.0}
+[2025-04-09 16:06:28,767] sub_met after prunning {'fdr': 0.4167, 'tpr': 1.0, 'fpr': 0.625, 'shd': 5, 'nnz': 12, 'precision': 0.5833, 'recall': 1.0, 'F1': 0.7368, 'gscore': 0.2857}
+[2025-04-09 16:06:28,767] 
+===  4-th graph ===
+[2025-04-09 16:06:28,767] 5 Nodes of Markov blanket: [3, 4, 5, 7, 9]
+[2025-04-09 16:06:34,715] sub_met2 before prunning {'fdr': 0.6, 'tpr': 0.6667, 'fpr': 1.5, 'shd': 6, 'nnz': 10, 'precision': 0.4, 'recall': 0.6667, 'F1': 0.5, 'gscore': 0.0}
+[2025-04-09 16:06:34,715] sub_met after prunning {'fdr': 0.625, 'tpr': 0.5, 'fpr': 1.25, 'shd': 6, 'nnz': 8, 'precision': 0.375, 'recall': 0.5, 'F1': 0.4286, 'gscore': 0.0}
+[2025-04-09 16:06:34,715] 
+===  5-th graph ===
+[2025-04-09 16:06:34,715] 8 Nodes of Markov blanket: [0, 1, 3, 4, 6, 7, 8, 9]
+[2025-04-09 16:06:45,323] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 16, 'nnz': 28, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 16:06:45,323] sub_met after prunning {'fdr': 0.0769, 'tpr': 1.0, 'fpr': 0.0625, 'shd': 1, 'nnz': 13, 'precision': 0.9231, 'recall': 1.0, 'F1': 0.96, 'gscore': 0.9167}
+[2025-04-09 16:06:45,323] 
+===  6-th graph ===
+[2025-04-09 16:06:45,323] 9 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:06:57,702] sub_met2 before prunning {'fdr': 0.5556, 'tpr': 1.0, 'fpr': 1.0, 'shd': 20, 'nnz': 36, 'precision': 0.4444, 'recall': 1.0, 'F1': 0.6154, 'gscore': 0.0}
+[2025-04-09 16:06:57,702] sub_met after prunning {'fdr': 0.0588, 'tpr': 1.0, 'fpr': 0.05, 'shd': 1, 'nnz': 17, 'precision': 0.9412, 'recall': 1.0, 'F1': 0.9697, 'gscore': 0.9375}
+[2025-04-09 16:06:57,702] 
+===  7-th graph ===
+[2025-04-09 16:06:57,702] 5 Nodes of Markov blanket: [3, 6, 7, 8, 9]
+[2025-04-09 16:07:03,108] sub_met2 before prunning {'fdr': 0.7, 'tpr': 1.0, 'fpr': 1.0, 'shd': 7, 'nnz': 10, 'precision': 0.3, 'recall': 1.0, 'F1': 0.4615, 'gscore': 0.0}
+[2025-04-09 16:07:03,108] sub_met after prunning {'fdr': 0.25, 'tpr': 1.0, 'fpr': 0.1429, 'shd': 1, 'nnz': 4, 'precision': 0.75, 'recall': 1.0, 'F1': 0.8571, 'gscore': 0.6667}
+[2025-04-09 16:07:03,108] 
+===  8-th graph ===
+[2025-04-09 16:07:03,108] 8 Nodes of Markov blanket: [1, 3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:07:13,537] sub_met2 before prunning {'fdr': 0.5357, 'tpr': 1.0, 'fpr': 1.0, 'shd': 15, 'nnz': 28, 'precision': 0.4643, 'recall': 1.0, 'F1': 0.6341, 'gscore': 0.0}
+[2025-04-09 16:07:13,537] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 13, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:07:13,537] merged_met_before  before prunning {'fdr': 0.5333, 'tpr': 0.8235, 'fpr': 0.5714, 'shd': 19, 'nnz': 30, 'precision': 0.4667, 'recall': 0.8235, 'F1': 0.5957, 'gscore': 0.0}
+[2025-04-09 16:07:13,550] merged_met_after  after prunning {'fdr': 0.0714, 'tpr': 0.7647, 'fpr': 0.0357, 'shd': 5, 'nnz': 14, 'precision': 0.9286, 'recall': 0.7647, 'F1': 0.8387, 'gscore': 0.7059}
+[2025-04-09 16:07:13,556] 
+===  0-th graph ===
+[2025-04-09 16:07:13,556] 7 Nodes of Markov blanket: [0, 2, 3, 4, 5, 6, 8]
+[2025-04-09 16:07:21,455] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 16:07:21,455] sub_met after prunning {'fdr': 0.1, 'tpr': 1.0, 'fpr': 0.0833, 'shd': 1, 'nnz': 10, 'precision': 0.9, 'recall': 1.0, 'F1': 0.9474, 'gscore': 0.8889}
+[2025-04-09 16:07:21,455] 
+===  1-th graph ===
+[2025-04-09 16:07:21,455] 3 Nodes of Markov blanket: [1, 8, 9]
+[2025-04-09 16:07:23,812] sub_met2 before prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:07:23,812] sub_met after prunning {'fdr': 0.6667, 'tpr': 0.5, 'fpr': 2.0, 'shd': 2, 'nnz': 3, 'precision': 0.3333, 'recall': 0.5, 'F1': 0.4, 'gscore': 0.0}
+[2025-04-09 16:07:23,812] 
+===  2-th graph ===
+[2025-04-09 16:07:23,812] 3 Nodes of Markov blanket: [0, 2, 3]
+[2025-04-09 16:07:26,163] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:07:26,163] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 2, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:07:26,163] 
+===  3-th graph ===
+[2025-04-09 16:07:26,164] 7 Nodes of Markov blanket: [0, 2, 3, 4, 5, 6, 8]
+[2025-04-09 16:07:34,113] sub_met2 before prunning {'fdr': 0.5714, 'tpr': 1.0, 'fpr': 1.0, 'shd': 12, 'nnz': 21, 'precision': 0.4286, 'recall': 1.0, 'F1': 0.6, 'gscore': 0.0}
+[2025-04-09 16:07:34,113] sub_met after prunning {'fdr': 0.1, 'tpr': 1.0, 'fpr': 0.0833, 'shd': 1, 'nnz': 10, 'precision': 0.9, 'recall': 1.0, 'F1': 0.9474, 'gscore': 0.8889}
+[2025-04-09 16:07:34,113] 
+===  4-th graph ===
+[2025-04-09 16:07:34,113] 6 Nodes of Markov blanket: [0, 3, 4, 5, 6, 8]
+[2025-04-09 16:07:40,517] sub_met2 before prunning {'fdr': 0.5333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 1.0, 'F1': 0.6364, 'gscore': 0.0}
+[2025-04-09 16:07:40,521] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 7, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:07:40,521] 
+===  5-th graph ===
+[2025-04-09 16:07:40,521] 8 Nodes of Markov blanket: [0, 3, 4, 5, 6, 7, 8, 9]
+[2025-04-09 16:07:50,828] sub_met2 before prunning {'fdr': 0.6429, 'tpr': 1.0, 'fpr': 1.0, 'shd': 18, 'nnz': 28, 'precision': 0.3571, 'recall': 1.0, 'F1': 0.5263, 'gscore': 0.0}
+[2025-04-09 16:07:50,829] sub_met after prunning {'fdr': 0.0909, 'tpr': 1.0, 'fpr': 0.0556, 'shd': 1, 'nnz': 11, 'precision': 0.9091, 'recall': 1.0, 'F1': 0.9524, 'gscore': 0.9}
+[2025-04-09 16:07:50,829] 
+===  6-th graph ===
+[2025-04-09 16:07:50,829] 6 Nodes of Markov blanket: [0, 3, 4, 5, 6, 8]
+[2025-04-09 16:07:57,191] sub_met2 before prunning {'fdr': 0.5333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 8, 'nnz': 15, 'precision': 0.4667, 'recall': 1.0, 'F1': 0.6364, 'gscore': 0.0}
+[2025-04-09 16:07:57,191] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 7, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:07:57,191] 
+===  7-th graph ===
+[2025-04-09 16:07:57,191] 3 Nodes of Markov blanket: [5, 7, 9]
+[2025-04-09 16:07:59,570] sub_met2 before prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:07:59,570] sub_met after prunning {'fdr': 0.3333, 'tpr': 1.0, 'fpr': 1.0, 'shd': 1, 'nnz': 3, 'precision': 0.6667, 'recall': 1.0, 'F1': 0.8, 'gscore': 0.5}
+[2025-04-09 16:07:59,570] 
+===  8-th graph ===
+[2025-04-09 16:07:59,570] 8 Nodes of Markov blanket: [0, 1, 3, 4, 5, 6, 8, 9]
+[2025-04-09 16:08:09,643] sub_met2 before prunning {'fdr': 0.6786, 'tpr': 1.0, 'fpr': 1.0, 'shd': 19, 'nnz': 28, 'precision': 0.3214, 'recall': 1.0, 'F1': 0.4865, 'gscore': 0.0}
+[2025-04-09 16:08:09,643] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 9, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:08:09,643] 
+===  9-th graph ===
+[2025-04-09 16:08:09,643] 5 Nodes of Markov blanket: [1, 5, 7, 8, 9]
+[2025-04-09 16:08:14,564] sub_met2 before prunning {'fdr': 0.5, 'tpr': 1.0, 'fpr': 1.0, 'shd': 5, 'nnz': 10, 'precision': 0.5, 'recall': 1.0, 'F1': 0.6667, 'gscore': 0.0}
+[2025-04-09 16:08:14,565] sub_met after prunning {'fdr': 0.0, 'tpr': 1.0, 'fpr': 0.0, 'shd': 0, 'nnz': 5, 'precision': 1.0, 'recall': 1.0, 'F1': 1.0, 'gscore': 1.0}
+[2025-04-09 16:08:14,621] merged_met_before  before prunning {'fdr': 0.7, 'tpr': 0.9231, 'fpr': 0.875, 'shd': 29, 'nnz': 40, 'precision': 0.3, 'recall': 0.9231, 'F1': 0.4528, 'gscore': 0.0}
+[2025-04-09 16:08:14,625] merged_met_after  after prunning {'fdr': 0.1429, 'tpr': 0.9231, 'fpr': 0.0625, 'shd': 3, 'nnz': 14, 'precision': 0.8571, 'recall': 0.9231, 'F1': 0.8889, 'gscore': 0.7692}
+[2025-04-09 16:08:14,625] Before pruning: {'fdr': '0.50+-0.12', 'tpr': '0.88+-0.06', 'fpr': '0.62+-0.11', 'shd': '18.80+-4.79', 'nnz': '33.10+-3.05', 'precision': '0.50+-0.12', 'recall': '0.88+-0.06', 'F1': '0.63+-0.11', 'gscore': '0.12+-0.20'}
+[2025-04-09 16:08:14,625] After pruning: {'fdr': '0.12+-0.08', 'tpr': '0.86+-0.08', 'fpr': '0.09+-0.06', 'shd': '4.80+-2.52', 'nnz': '18.10+-4.09', 'precision': '0.88+-0.08', 'recall': '0.86+-0.08', 'F1': '0.87+-0.07', 'gscore': '0.74+-0.14'}

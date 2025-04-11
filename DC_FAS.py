@@ -31,6 +31,7 @@ import networkx as nx
 import numpy as np
 import traceback
 import time
+from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score
 
 import castle
 from castle.common import GraphDAG
@@ -89,9 +90,9 @@ def set_logger(args):
     
     
 
-def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
+def get_MB(data, ice_lam_min = 0.01, ice_lam_max = 0.4, ice_lam_n = 40):
     # 这三个参数维持SCILP默认设置，具体取值也许论文里提及了？ TODO double check hyper-parameters in DCILP paper
-    # ice_lam_min, ice_lam_max, ice_lam_n 
+    # ice_lam_min, ice_lam_max, ice_lam_n 0.1, 0.3, 10
 
     data = data - np.mean(data, axis=0, keepdims=True)
     # Method ICE empirical
@@ -108,6 +109,51 @@ def get_MB(data, ice_lam_min = 0.1, ice_lam_max = 0.3, ice_lam_n = 10):
     print(MBs)
     return MBs
 
+def true_MB(true_dag, i):
+    n_nodes = true_dag.shape[0]
+    # print(f"====={i}====")
+    parents = set(np.where(true_dag[:,i])[0])
+    children = set(np.where(true_dag[i,:])[0])
+    # print(f"parents:{parents}")
+    # print(f"children:{children}")
+    spouse = []
+    for c in children:
+        spouse += list(np.where(true_dag[:,c])[0])
+    spouse = set(spouse)
+    MB = sorted(parents.union(set(children), set(spouse)))
+    # print(f"spouse:{spouse}")
+    # print(f"MB:{MB}")
+    return parents, children, spouse, MB
+
+def eval_MB(tgt, pred):
+    n = max(max(pred), max(tgt))+1
+    p = [0]*n
+    g = [0]*n
+    for i in pred: p[i] = 1
+    for i in tgt: g[i] = 1
+
+    precision = precision_score(g,p)
+    recall = recall_score(g,p)
+    acc = accuracy_score(g,p)
+    f1 = f1_score(g,p)
+    logger.info(f"[MB metrics] precision: {precision:.3f}, recall: {recall:.3f}, acc: {acc:.3f}, f1: {f1:.3f}")
+    return {'precision': precision, 'recall': recall, 'acc': acc, 'f1': f1}
+
+def evaluation_summary(list_of_dic):
+    keys = list_of_dic[0].keys()
+    averages = {key: [] for key in keys}
+    std_devs = {key: [] for key in keys}
+    for dictionary in list_of_dic:
+        for key in keys:
+            averages[key].append(dictionary[key])
+            std_devs[key].append(dictionary[key])
+
+    for key in keys:
+        averages[key] = np.mean(averages[key])
+        std_devs[key] = np.std(std_devs[key])
+
+    result = {key: f"{averages[key]:.2f}+-{std_devs[key]:.2f}" for key in keys}
+    return result
 
 def split_graph(markov_blankets, true_dag, X):
     # sub_X_list: 每个元素为子图对应的数据矩阵
@@ -123,7 +169,9 @@ def split_graph(markov_blankets, true_dag, X):
         blanket_indices = np.where(markov_blankets[i])[0]
         # print(i, blanket_indices)
         if len(blanket_indices) <= 1:
-            continue
+            sub_X_list.append(None)
+            sub_true_dag_list.append(None)
+            sub_nodes_list.append(None)
         # 把节点 i 自己也加进去
         nodes = set(blanket_indices)
         nodes.add(i)
@@ -305,7 +353,8 @@ if __name__ == '__main__':
                                 method=args.method, sem_type=args.sem_type)
         true_dag, X = dataset.B, dataset.X
         print(f"X: {X.shape}\n{X}")
-        print(f'true_dag\n{true_dag}')
+        logger.info(f'true_dag\n{true_dag}')
+        parents, children, spouse, sub_MB = true_MB(true_dag, 0)
 
 
         ## 测试MB结果
@@ -320,12 +369,16 @@ if __name__ == '__main__':
         time_subgraph_list = []
         sub_causal_matrix_list_befroe = []
         sub_causal_matrix_list_after = []
+        mb_metrics_list = []
         for i, (sub_X, sub_true_dag, sub_nodes) in enumerate(zip(sub_X_list, 
                                                          sub_true_dag_list, 
                                                          sub_nodes_list)):
             logger.info(f"\n===  {i}-th graph ===")
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
-            # if len(sub_nodes) == 1: continue
+            parents, children, spouse, sub_true_MB = true_MB(true_dag, i)
+            logger.info(f"{len(sub_true_MB)} Nodes of True MB: {sub_true_MB}, parents: {parents}, children: {children}, spouse: {spouse}")
+            mb_metrics_list.append(eval_MB(sub_true_MB, sub_nodes))
+            if sub_nodes is None: continue
             t1 = time.time()
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
             time_subgraph = time.time()-t1
@@ -344,10 +397,17 @@ if __name__ == '__main__':
             sub_causal_matrix_list_befroe.append(sub_causal_matrix_order)
             # 剪枝后
             sub_causal_matrix_list_after.append(sub_causal_matrix)
+
+            # logger.info(f"sub_matrix_before\n{sub_causal_matrix_order.astype(np.int64)}")
+            # logger.info(f"sub_matrix_after\n{sub_causal_matrix.astype(np.int64)}")
+            # logger.info(f"sub_true_dag {type(sub_true_dag)}\n{sub_true_dag}")
+
         time_subgraph_avg = sum(time_subgraph_list)/len(time_subgraph_list) if len(time_subgraph_list)>0 else -1
         time_subgraph_max = max(time_subgraph_list)
         time_subgraph_tot = sum(time_subgraph_list)
-        
+        mb_eval = evaluation_summary(mb_metrics_list)
+        logger.info(f"\n======= Graph Summary =======")
+        logger.info(f"MB summary: {mb_eval}")
         # merge 
         t1 = time.time()
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
