@@ -67,7 +67,7 @@ def set_logger(args):
     # logger.warning("这是一条warning信息")
     # logger.error("这是一条error信息")
     # logger.critical("这是一条critical信息")
-    log_path = f"./experiment_logs/{args.type}{args.h}N{args.nodes}_DCFAS_{args.model}.log"
+    log_path = f"./experiment_logs/mergelamb_{args.type}{args.h}N{args.nodes}_DCFAS_{args.model}.log"
     if os.path.exists(log_path): os.remove(log_path)
     
     logger = logging.getLogger(__name__)
@@ -197,19 +197,33 @@ def merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag):
     """
     recover_graph = np.zeros(true_dag.shape)
     count = np.zeros(true_dag.shape)
-    # logger.info(f"sub_nodes_list\n{sub_nodes_list}")
-    # logger.info(f"sub_causal_matrix_list\n{sub_causal_matrix_list}")
-
 
     for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
         recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
         count[np.ix_(nodes, nodes)] += 1
-        # logger.info(f"{nodes}\n{sub_causal_matrix}")
-        # logger.info(f"recover_graph\n{recover_graph}")
-        # logger.info(f"count\n{count}")
     
     count = np.maximum(count, np.ones(true_dag.shape))
     recover_graph = recover_graph/count
+    
+    return recover_graph
+
+def merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list, true_dag, lamb=0.5):
+    """
+    A naiive voting merge method, directly weighted sum all edges mentioned in `sub_causal_matrix_list`
+
+    sub_nodes_list: 2-D List
+    sub_causal_matrix_list: List of np arrays
+    """
+    recover_graph = np.zeros(true_dag.shape)
+    count = np.zeros(true_dag.shape)
+
+    for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
+        recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
+        count[np.ix_(nodes, nodes)] += 1
+    
+    coef = 1-np.exp(-lamb*count)
+    count = np.maximum(count, np.ones(true_dag.shape))
+    recover_graph = recover_graph/count*coef
     
     return recover_graph
 
@@ -375,11 +389,12 @@ if __name__ == '__main__':
                                                          sub_true_dag_list, 
                                                          sub_nodes_list)):
             logger.info(f"\n===  {i}-th graph ===")
-            logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
             parents, children, spouse, sub_true_MB = true_MB(true_dag, i)
             logger.info(f"{len(sub_true_MB)} Nodes of True MB: {sub_true_MB}, parents: {parents}, children: {children}, spouse: {spouse}")
-            mb_metrics_list.append(eval_MB(sub_true_MB, sub_nodes))
             if sub_nodes is None: continue
+            logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
+            mb_metrics_list.append(eval_MB(sub_true_MB, sub_nodes))
+            
             t1 = time.time()
             sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag) 
             time_subgraph = time.time()-t1
@@ -412,19 +427,28 @@ if __name__ == '__main__':
         # merge 
         t1 = time.time()
         merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
-        merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        # logger.info(merged_causal_matrix)
+        merge_DAG = (GreedyFAS(merged_causal_matrix)>0).astype(np.int64)
+        # logger.info(merge_DAG)
         time_FAS_before = time.time()-t1
         np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
         merged_met_before = castle.metrics.MetricsDAG(merge_DAG, true_dag)
         logger.info(f"merged_met_before  before prunning {merged_met_before.metrics}")
-
+        # exit()
         t1 = time.time()
-        merged_causal_matrix = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
-        merge_DAG = GreedyFAS(merged_causal_matrix).astype(np.int64)
+        merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
+        # merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
+        # logger.info(merged_causal_matrix)
+        merge_DAG = GreedyFAS(merged_causal_matrix)
+        # logger.info(merge_DAG)
+        merge_DAG = (merge_DAG>0).astype(np.int64)
+        logger.info(merge_DAG)
         time_FAS_after = time.time()-t1
         np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
         merged_met_after = castle.metrics.MetricsDAG(merge_DAG, true_dag)
         logger.info(f"merged_met_after  after prunning {merged_met_after.metrics}")
+
+
 
         if merged_met_before:
             mmbef = merged_met_before.metrics
