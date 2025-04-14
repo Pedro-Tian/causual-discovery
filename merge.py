@@ -141,7 +141,7 @@ def GreedyFAS(A):
         graph.append(line)
 
     eades_order = greedy.compute_order(graph)
-    print(f'eades_order \n{eades_order}')
+    # print(f'eades_order \n{eades_order}')
     
     removed_edges = []
     for u in eades_order:
