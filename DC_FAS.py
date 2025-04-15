@@ -37,7 +37,7 @@ import castle
 from castle.common import GraphDAG
 
 from castle.datasets import DAG, IIDSimulation
-# from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
+from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
 from dodiscover.toporder import SCORE#, DAS, NoGAM, CAM
 
 from dodiscover.context_builder import make_context
@@ -116,7 +116,7 @@ def true_MB(true_dag, i):
     children = set(np.where(true_dag[i,:])[0])
     # print(f"parents:{parents}")
     # print(f"children:{children}")
-    spouse = []
+    spouse = [i]
     for c in children:
         spouse += list(np.where(true_dag[:,c])[0])
     spouse = set(spouse)
@@ -260,6 +260,7 @@ def infer_causal(args, X, true_dag):
         model = GOLEM(num_iter=1e4)
         model.learn(X)
         causal_matrix = model.causal_matrix
+        causal_matrix_order = model.causal_matrix
     elif args.model == 'DAGGNN':
         model = DAG_GNN()
         model.learn(X)
@@ -348,7 +349,7 @@ if __name__ == '__main__':
 
     res_after_prunning = []
     res_before_prunning = []
-    lamb_choice = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.5, 2, 3, 4, 5]
+    lamb_choice = [0.01, 0.02, 0.03, 0.04, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.5, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 30, 40, 50, 100]
     thresh_choice = [0, 0.05 ,0.1 ,0.15 ,0.2 ,0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9]
     lamb_and_thresh_exp_bef = {f"{l}_{t}": [] for l in lamb_choice for t in thresh_choice}
     lamb_and_thresh_exp_aft = {f"{l}_{t}": [] for l in lamb_choice for t in thresh_choice}
@@ -432,63 +433,67 @@ if __name__ == '__main__':
         logger.info(f"\n======= Graph Summary =======")
         logger.info(f"MB summary: {mb_eval}")
         # merge 
-        t1 = time.time()
-        merged_causal_matrix_bef = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
-        merge_DAG = (GreedyFAS(merged_causal_matrix_bef)>0).astype(np.int64)
-        time_FAS_before = time.time()-t1
-        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
-        merged_met_before = castle.metrics.MetricsDAG(merge_DAG, true_dag)
-        logger.info(f"merged_met_before  before prunning {merged_met_before.metrics}")
+        try:
+            t1 = time.time()
+            merged_causal_matrix_bef = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
+            merge_DAG = (GreedyFAS(merged_causal_matrix_bef)>0).astype(np.int64)
+            time_FAS_before = time.time()-t1
+            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
+            merged_met_before = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+            logger.info(f"merged_met_before  before prunning {merged_met_before.metrics}")
 
-        for l in lamb_choice:
-            for t in thresh_choice:
-                merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag, lamb=l)
-                merge_DAG = (GreedyFAS(merged_causal_matrix)>t).astype(np.int64)
-                merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
-                logger.info(f"merged_met_before lamb={l} thresh={t} {merged_met.metrics}")
-                lamb_and_thresh_exp_bef[f"{l}_{t}"].append(merged_met.metrics)
-        
-        # exit()
-        t1 = time.time()
-        merged_causal_matrix_aft = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
-        merge_DAG = GreedyFAS(merged_causal_matrix_aft)
-        merge_DAG = (merge_DAG>0).astype(np.int64)
-        logger.info(merge_DAG)
-        time_FAS_after = time.time()-t1
-        np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
-        merged_met_after = castle.metrics.MetricsDAG(merge_DAG, true_dag)
-        logger.info(f"merged_met_after  after prunning {merged_met_after.metrics}")
+            for l in lamb_choice:
+                for t in thresh_choice:
+                    merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag, lamb=l)
+                    merge_DAG = (GreedyFAS(merged_causal_matrix)>t).astype(np.int64)
+                    merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+                    logger.info(f"merged_met_before lamb={l} thresh={t} {merged_met.metrics}")
+                    lamb_and_thresh_exp_bef[f"{l}_{t}"].append(merged_met.metrics)
+            
+            # exit()
+            t1 = time.time()
+            merged_causal_matrix_aft = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_after, true_dag)
+            merge_DAG = GreedyFAS(merged_causal_matrix_aft)
+            merge_DAG = (merge_DAG>0).astype(np.int64)
+            logger.info(merge_DAG)
+            time_FAS_after = time.time()-t1
+            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
+            merged_met_after = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+            logger.info(f"merged_met_after  after prunning {merged_met_after.metrics}")
 
-        for l in lamb_choice:
-            for t in thresh_choice:
-                merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_after, true_dag, lamb=l)
-                merge_DAG = (GreedyFAS(merged_causal_matrix)>t).astype(np.int64)
-                merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
-                logger.info(f"merged_met_after lamb={l} thresh={t} {merged_met.metrics}")
-                lamb_and_thresh_exp_aft[f"{l}_{t}"].append(merged_met.metrics)
+            for l in lamb_choice:
+                for t in thresh_choice:
+                    merged_causal_matrix = merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list_after, true_dag, lamb=l)
+                    merge_DAG = (GreedyFAS(merged_causal_matrix)>t).astype(np.int64)
+                    merged_met = castle.metrics.MetricsDAG(merge_DAG, true_dag)
+                    logger.info(f"merged_met_after lamb={l} thresh={t} {merged_met.metrics}")
+                    lamb_and_thresh_exp_aft[f"{l}_{t}"].append(merged_met.metrics)
 
 
 
-        if merged_met_before:
-            mmbef = merged_met_before.metrics
-            mmbef['time_mb'] = time_MB
-            mmbef['time_sub_avg'] = time_subgraph_avg
-            mmbef['time_sub_max'] = time_subgraph_max
-            mmbef['time_sub_tot'] = time_subgraph_tot
-            mmbef['time_FAS'] = time_FAS_before
-            mmbef['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_before
-            mmbef['time_tot'] = time_MB+time_subgraph_tot+time_FAS_before
-            res_before_prunning.append(mmbef)
-        if merged_met_after:
-            mmaft = merged_met_after.metrics
-            mmaft['time_mb'] = time_MB
-            mmaft['time_sub_avg'] = time_subgraph_avg
-            mmaft['time_sub_max'] = time_subgraph_max
-            mmaft['time_sub_tot'] = time_subgraph_tot
-            mmaft['time_FAS'] = time_FAS_after
-            mmaft['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_after
-            mmaft['time_tot'] = time_MB+time_subgraph_tot+time_FAS_after
-            res_after_prunning.append(mmaft)
+            if merged_met_before:
+                mmbef = merged_met_before.metrics
+                mmbef['time_mb'] = time_MB
+                mmbef['time_sub_avg'] = time_subgraph_avg
+                mmbef['time_sub_max'] = time_subgraph_max
+                mmbef['time_sub_tot'] = time_subgraph_tot
+                mmbef['time_FAS'] = time_FAS_before
+                mmbef['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_before
+                mmbef['time_tot'] = time_MB+time_subgraph_tot+time_FAS_before
+                res_before_prunning.append(mmbef)
+            if merged_met_after:
+                mmaft = merged_met_after.metrics
+                mmaft['time_mb'] = time_MB
+                mmaft['time_sub_avg'] = time_subgraph_avg
+                mmaft['time_sub_max'] = time_subgraph_max
+                mmaft['time_sub_tot'] = time_subgraph_tot
+                mmaft['time_FAS'] = time_FAS_after
+                mmaft['time_dist_tot'] = time_MB+time_subgraph_max+time_FAS_after
+                mmaft['time_tot'] = time_MB+time_subgraph_tot+time_FAS_after
+                res_after_prunning.append(mmaft)
+
+        except Exception as e:
+            logger.info(f"[Error] {traceback.format_exc()}")
 
 
     logger.info(lamb_and_thresh_exp_bef)
