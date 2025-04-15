@@ -257,7 +257,7 @@ def infer_causal(args, X, true_dag):
         model.learn(X)
         causal_matrix = model.causal_matrix
     elif args.model == 'GOLEM':
-        model = GOLEM(num_iter=1e4)
+        model = GOLEM(num_iter=1e4, device_type='cpu')
         model.learn(X)
         causal_matrix = model.causal_matrix
         causal_matrix_order = model.causal_matrix
