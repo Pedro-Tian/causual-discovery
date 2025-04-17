@@ -199,6 +199,9 @@ def merge_graph_voting(sub_nodes_list, sub_causal_matrix_list, true_dag):
     count = np.zeros(true_dag.shape)
 
     for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
+        # logger.info(f"[DEBUG] nodes {nodes}")
+        # logger.info(f"[DEBUG] sub_causal_matrix {sub_causal_matrix}")
+        if nodes is None: continue
         recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
         count[np.ix_(nodes, nodes)] += 1
     
@@ -218,6 +221,7 @@ def merge_graph_voting_lamb(sub_nodes_list, sub_causal_matrix_list, true_dag, la
     count = np.zeros(true_dag.shape)
 
     for nodes, sub_causal_matrix in zip(sub_nodes_list, sub_causal_matrix_list):
+        if nodes is None: continue
         recover_graph[np.ix_(nodes, nodes)] += sub_causal_matrix
         count[np.ix_(nodes, nodes)] += 1
     
@@ -399,7 +403,10 @@ if __name__ == '__main__':
             logger.info(f"\n===  {i}-th graph ===")
             parents, children, spouse, sub_true_MB = true_MB(true_dag, i)
             logger.info(f"{len(sub_true_MB)} Nodes of True MB: {sub_true_MB}, parents: {parents}, children: {children}, spouse: {spouse}")
-            if sub_nodes is None: continue
+            if sub_nodes is None: 
+                sub_causal_matrix_list_befroe.append(None)
+                sub_causal_matrix_list_after.append(None)
+                continue
             logger.info(f"{len(sub_nodes)} Nodes of Markov blanket: {sub_nodes}")
             mb_metrics_list.append(eval_MB(sub_true_MB, sub_nodes))
             
