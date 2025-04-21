@@ -38,7 +38,7 @@ from castle.common import GraphDAG
 
 from castle.datasets import DAG, IIDSimulation
 from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
-from dodiscover.toporder import SCORE#, DAS, NoGAM, CAM
+from dodiscover.toporder import SCORE, DAS, NoGAM, CAM
 
 from dodiscover.context_builder import make_context
 
@@ -260,6 +260,7 @@ def infer_causal(args, X, true_dag):
         model = Notears()
         model.learn(X)
         causal_matrix = model.causal_matrix
+        causal_matrix_order = model.causal_matrix
     elif args.model == 'GOLEM':
         model = GOLEM(num_iter=1e4, device_type='cpu')
         model.learn(X)
@@ -269,10 +270,12 @@ def infer_causal(args, X, true_dag):
         model = DAG_GNN()
         model.learn(X)
         causal_matrix = model.causal_matrix
+        causal_matrix_order = model.causal_matrix
     elif args.model == 'GRANDAG':
         model = GraNDAG(input_dim=X.shape[1], iterations = 100000)
         model.learn(X)
         causal_matrix = model.causal_matrix
+        causal_matrix_order = model.causal_matrix
     elif args.model == 'SCORE':
         # eta_G = 0.001
         # eta_H = 0.001
