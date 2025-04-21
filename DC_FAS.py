@@ -448,7 +448,7 @@ if __name__ == '__main__':
             merged_causal_matrix_bef = merge_graph_voting(sub_nodes_list, sub_causal_matrix_list_befroe, true_dag)
             merge_DAG = (GreedyFAS(merged_causal_matrix_bef)>0).astype(np.int64)
             time_FAS_before = time.time()-t1
-            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
+            # np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_before.npy", merge_DAG)
             merged_met_before = castle.metrics.MetricsDAG(merge_DAG, true_dag)
             logger.info(f"merged_met_before  before prunning {merged_met_before.metrics}")
 
@@ -467,7 +467,7 @@ if __name__ == '__main__':
             merge_DAG = (merge_DAG>0).astype(np.int64)
             logger.info(merge_DAG)
             time_FAS_after = time.time()-t1
-            np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
+            # np.save(f"./npy/{args.type}{args.h}N{args.nodes}_{args.model}_repeat{_}_after.npy", merge_DAG)
             merged_met_after = castle.metrics.MetricsDAG(merge_DAG, true_dag)
             logger.info(f"merged_met_after  after prunning {merged_met_after.metrics}")
 
