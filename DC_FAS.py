@@ -37,7 +37,7 @@ import castle
 from castle.common import GraphDAG
 
 from castle.datasets import DAG, IIDSimulation
-from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN
+from castle.algorithms import CORL, Notears, GOLEM, GraNDAG, DAG_GNN, GES
 from dodiscover.toporder import SCORE, DAS, NoGAM, CAM
 
 from dodiscover.context_builder import make_context
@@ -258,6 +258,11 @@ def infer_causal(args, X, true_dag):
         causal_matrix = model.causal_matrix
     elif args.model == 'NOTEARS':
         model = Notears()
+        model.learn(X)
+        causal_matrix = model.causal_matrix
+        causal_matrix_order = model.causal_matrix
+    elif args.model == 'GES':
+        model = GES()
         model.learn(X)
         causal_matrix = model.causal_matrix
         causal_matrix_order = model.causal_matrix
