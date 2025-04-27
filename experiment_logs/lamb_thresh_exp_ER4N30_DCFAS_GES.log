@@ -1,0 +1,416 @@
+[2025-04-24 11:57:09,126] {'0.01_0': [], '0.01_0.05': [], '0.01_0.1': [], '0.01_0.15': [], '0.01_0.2': [], '0.01_0.25': [], '0.01_0.3': [], '0.01_0.35': [], '0.01_0.4': [], '0.01_0.45': [], '0.01_0.5': [], '0.01_0.6': [], '0.01_0.7': [], '0.01_0.8': [], '0.01_0.9': [], '0.02_0': [], '0.02_0.05': [], '0.02_0.1': [], '0.02_0.15': [], '0.02_0.2': [], '0.02_0.25': [], '0.02_0.3': [], '0.02_0.35': [], '0.02_0.4': [], '0.02_0.45': [], '0.02_0.5': [], '0.02_0.6': [], '0.02_0.7': [], '0.02_0.8': [], '0.02_0.9': [], '0.03_0': [], '0.03_0.05': [], '0.03_0.1': [], '0.03_0.15': [], '0.03_0.2': [], '0.03_0.25': [], '0.03_0.3': [], '0.03_0.35': [], '0.03_0.4': [], '0.03_0.45': [], '0.03_0.5': [], '0.03_0.6': [], '0.03_0.7': [], '0.03_0.8': [], '0.03_0.9': [], '0.04_0': [], '0.04_0.05': [], '0.04_0.1': [], '0.04_0.15': [], '0.04_0.2': [], '0.04_0.25': [], '0.04_0.3': [], '0.04_0.35': [], '0.04_0.4': [], '0.04_0.45': [], '0.04_0.5': [], '0.04_0.6': [], '0.04_0.7': [], '0.04_0.8': [], '0.04_0.9': [], '0.05_0': [], '0.05_0.05': [], '0.05_0.1': [], '0.05_0.15': [], '0.05_0.2': [], '0.05_0.25': [], '0.05_0.3': [], '0.05_0.35': [], '0.05_0.4': [], '0.05_0.45': [], '0.05_0.5': [], '0.05_0.6': [], '0.05_0.7': [], '0.05_0.8': [], '0.05_0.9': [], '0.1_0': [], '0.1_0.05': [], '0.1_0.1': [], '0.1_0.15': [], '0.1_0.2': [], '0.1_0.25': [], '0.1_0.3': [], '0.1_0.35': [], '0.1_0.4': [], '0.1_0.45': [], '0.1_0.5': [], '0.1_0.6': [], '0.1_0.7': [], '0.1_0.8': [], '0.1_0.9': [], '0.2_0': [], '0.2_0.05': [], '0.2_0.1': [], '0.2_0.15': [], '0.2_0.2': [], '0.2_0.25': [], '0.2_0.3': [], '0.2_0.35': [], '0.2_0.4': [], '0.2_0.45': [], '0.2_0.5': [], '0.2_0.6': [], '0.2_0.7': [], '0.2_0.8': [], '0.2_0.9': [], '0.3_0': [], '0.3_0.05': [], '0.3_0.1': [], '0.3_0.15': [], '0.3_0.2': [], '0.3_0.25': [], '0.3_0.3': [], '0.3_0.35': [], '0.3_0.4': [], '0.3_0.45': [], '0.3_0.5': [], '0.3_0.6': [], '0.3_0.7': [], '0.3_0.8': [], '0.3_0.9': [], '0.4_0': [], '0.4_0.05': [], '0.4_0.1': [], '0.4_0.15': [], '0.4_0.2': [], '0.4_0.25': [], '0.4_0.3': [], '0.4_0.35': [], '0.4_0.4': [], '0.4_0.45': [], '0.4_0.5': [], '0.4_0.6': [], '0.4_0.7': [], '0.4_0.8': [], '0.4_0.9': [], '0.5_0': [], '0.5_0.05': [], '0.5_0.1': [], '0.5_0.15': [], '0.5_0.2': [], '0.5_0.25': [], '0.5_0.3': [], '0.5_0.35': [], '0.5_0.4': [], '0.5_0.45': [], '0.5_0.5': [], '0.5_0.6': [], '0.5_0.7': [], '0.5_0.8': [], '0.5_0.9': [], '0.6_0': [], '0.6_0.05': [], '0.6_0.1': [], '0.6_0.15': [], '0.6_0.2': [], '0.6_0.25': [], '0.6_0.3': [], '0.6_0.35': [], '0.6_0.4': [], '0.6_0.45': [], '0.6_0.5': [], '0.6_0.6': [], '0.6_0.7': [], '0.6_0.8': [], '0.6_0.9': [], '0.7_0': [], '0.7_0.05': [], '0.7_0.1': [], '0.7_0.15': [], '0.7_0.2': [], '0.7_0.25': [], '0.7_0.3': [], '0.7_0.35': [], '0.7_0.4': [], '0.7_0.45': [], '0.7_0.5': [], '0.7_0.6': [], '0.7_0.7': [], '0.7_0.8': [], '0.7_0.9': [], '0.8_0': [], '0.8_0.05': [], '0.8_0.1': [], '0.8_0.15': [], '0.8_0.2': [], '0.8_0.25': [], '0.8_0.3': [], '0.8_0.35': [], '0.8_0.4': [], '0.8_0.45': [], '0.8_0.5': [], '0.8_0.6': [], '0.8_0.7': [], '0.8_0.8': [], '0.8_0.9': [], '0.9_0': [], '0.9_0.05': [], '0.9_0.1': [], '0.9_0.15': [], '0.9_0.2': [], '0.9_0.25': [], '0.9_0.3': [], '0.9_0.35': [], '0.9_0.4': [], '0.9_0.45': [], '0.9_0.5': [], '0.9_0.6': [], '0.9_0.7': [], '0.9_0.8': [], '0.9_0.9': [], '1_0': [], '1_0.05': [], '1_0.1': [], '1_0.15': [], '1_0.2': [], '1_0.25': [], '1_0.3': [], '1_0.35': [], '1_0.4': [], '1_0.45': [], '1_0.5': [], '1_0.6': [], '1_0.7': [], '1_0.8': [], '1_0.9': [], '1.5_0': [], '1.5_0.05': [], '1.5_0.1': [], '1.5_0.15': [], '1.5_0.2': [], '1.5_0.25': [], '1.5_0.3': [], '1.5_0.35': [], '1.5_0.4': [], '1.5_0.45': [], '1.5_0.5': [], '1.5_0.6': [], '1.5_0.7': [], '1.5_0.8': [], '1.5_0.9': [], '2_0': [], '2_0.05': [], '2_0.1': [], '2_0.15': [], '2_0.2': [], '2_0.25': [], '2_0.3': [], '2_0.35': [], '2_0.4': [], '2_0.45': [], '2_0.5': [], '2_0.6': [], '2_0.7': [], '2_0.8': [], '2_0.9': [], '3_0': [], '3_0.05': [], '3_0.1': [], '3_0.15': [], '3_0.2': [], '3_0.25': [], '3_0.3': [], '3_0.35': [], '3_0.4': [], '3_0.45': [], '3_0.5': [], '3_0.6': [], '3_0.7': [], '3_0.8': [], '3_0.9': [], '4_0': [], '4_0.05': [], '4_0.1': [], '4_0.15': [], '4_0.2': [], '4_0.25': [], '4_0.3': [], '4_0.35': [], '4_0.4': [], '4_0.45': [], '4_0.5': [], '4_0.6': [], '4_0.7': [], '4_0.8': [], '4_0.9': [], '5_0': [], '5_0.05': [], '5_0.1': [], '5_0.15': [], '5_0.2': [], '5_0.25': [], '5_0.3': [], '5_0.35': [], '5_0.4': [], '5_0.45': [], '5_0.5': [], '5_0.6': [], '5_0.7': [], '5_0.8': [], '5_0.9': [], '6_0': [], '6_0.05': [], '6_0.1': [], '6_0.15': [], '6_0.2': [], '6_0.25': [], '6_0.3': [], '6_0.35': [], '6_0.4': [], '6_0.45': [], '6_0.5': [], '6_0.6': [], '6_0.7': [], '6_0.8': [], '6_0.9': [], '7_0': [], '7_0.05': [], '7_0.1': [], '7_0.15': [], '7_0.2': [], '7_0.25': [], '7_0.3': [], '7_0.35': [], '7_0.4': [], '7_0.45': [], '7_0.5': [], '7_0.6': [], '7_0.7': [], '7_0.8': [], '7_0.9': [], '8_0': [], '8_0.05': [], '8_0.1': [], '8_0.15': [], '8_0.2': [], '8_0.25': [], '8_0.3': [], '8_0.35': [], '8_0.4': [], '8_0.45': [], '8_0.5': [], '8_0.6': [], '8_0.7': [], '8_0.8': [], '8_0.9': [], '9_0': [], '9_0.05': [], '9_0.1': [], '9_0.15': [], '9_0.2': [], '9_0.25': [], '9_0.3': [], '9_0.35': [], '9_0.4': [], '9_0.45': [], '9_0.5': [], '9_0.6': [], '9_0.7': [], '9_0.8': [], '9_0.9': [], '10_0': [], '10_0.05': [], '10_0.1': [], '10_0.15': [], '10_0.2': [], '10_0.25': [], '10_0.3': [], '10_0.35': [], '10_0.4': [], '10_0.45': [], '10_0.5': [], '10_0.6': [], '10_0.7': [], '10_0.8': [], '10_0.9': [], '15_0': [], '15_0.05': [], '15_0.1': [], '15_0.15': [], '15_0.2': [], '15_0.25': [], '15_0.3': [], '15_0.35': [], '15_0.4': [], '15_0.45': [], '15_0.5': [], '15_0.6': [], '15_0.7': [], '15_0.8': [], '15_0.9': [], '20_0': [], '20_0.05': [], '20_0.1': [], '20_0.15': [], '20_0.2': [], '20_0.25': [], '20_0.3': [], '20_0.35': [], '20_0.4': [], '20_0.45': [], '20_0.5': [], '20_0.6': [], '20_0.7': [], '20_0.8': [], '20_0.9': [], '30_0': [], '30_0.05': [], '30_0.1': [], '30_0.15': [], '30_0.2': [], '30_0.25': [], '30_0.3': [], '30_0.35': [], '30_0.4': [], '30_0.45': [], '30_0.5': [], '30_0.6': [], '30_0.7': [], '30_0.8': [], '30_0.9': [], '40_0': [], '40_0.05': [], '40_0.1': [], '40_0.15': [], '40_0.2': [], '40_0.25': [], '40_0.3': [], '40_0.35': [], '40_0.4': [], '40_0.45': [], '40_0.5': [], '40_0.6': [], '40_0.7': [], '40_0.8': [], '40_0.9': [], '50_0': [], '50_0.05': [], '50_0.1': [], '50_0.15': [], '50_0.2': [], '50_0.25': [], '50_0.3': [], '50_0.35': [], '50_0.4': [], '50_0.45': [], '50_0.5': [], '50_0.6': [], '50_0.7': [], '50_0.8': [], '50_0.9': [], '100_0': [], '100_0.05': [], '100_0.1': [], '100_0.15': [], '100_0.2': [], '100_0.25': [], '100_0.3': [], '100_0.35': [], '100_0.4': [], '100_0.45': [], '100_0.5': [], '100_0.6': [], '100_0.7': [], '100_0.8': [], '100_0.9': []}
+[2025-04-24 11:57:09,126] 
+================ repeat number 1 ====================
+[2025-04-24 11:57:09,133] true_dag
+[[0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 1 1 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0]
+ [0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 0 1]
+ [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [1 0 0 0 1 0 0 1 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0 1]
+ [0 1 0 1 0 0 0 1 1 0 1 0 0 0 1 1 0 0 0 1 0 0 0 1 0 1 1 0 0 0]
+ [0 0 1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0]
+ [0 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1]
+ [0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 0 0 1 0 0 0 0 0 1 1 0 0 0 1 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0]
+ [0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 1 0 0 0 0 0]
+ [0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 0 0 1 0]
+ [0 1 1 0 0 0 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]]
+[2025-04-24 11:57:09,152] 
+===  0-th graph ===
+[2025-04-24 11:57:09,152] 13 Nodes of True MB: [0, 4, 5, 7, 11, 12, 13, 16, 21, 24, 25, 26, 27], parents: {11}, children: {7, 13, 16, 21, 24, 25}, spouse: {0, 4, 5, 7, 11, 12, 21, 25, 26, 27}
+[2025-04-24 11:57:09,152] 13 Nodes of Markov blanket: [0, 4, 5, 11, 12, 13, 16, 18, 21, 24, 25, 26, 27]
+[2025-04-24 11:57:09,157] [MB metrics] precision: 0.923, recall: 0.923, acc: 0.929, f1: 0.923
+[2025-04-24 11:57:11,536] check dag: True
+[2025-04-24 11:57:11,542] sub_met2 before prunning None
+[2025-04-24 11:57:11,543] sub_met after prunning {'fdr': 0.6383, 'tpr': 0.68, 'fpr': 0.566, 'shd': 30, 'nnz': 47, 'precision': 0.3617, 'recall': 0.68, 'F1': 0.4722, 'gscore': 0.0}
+[2025-04-24 11:57:11,543] 
+===  1-th graph ===
+[2025-04-24 11:57:11,543] 15 Nodes of True MB: [1, 2, 4, 7, 8, 12, 13, 16, 19, 21, 24, 25, 26, 27, 28], parents: {2, 7, 12, 25, 27}, children: {19, 28}, spouse: {1, 4, 8, 12, 13, 16, 21, 24, 26}
+[2025-04-24 11:57:11,543] 16 Nodes of Markov blanket: [1, 2, 4, 7, 8, 11, 12, 13, 16, 19, 21, 24, 25, 26, 27, 28]
+[2025-04-24 11:57:11,547] [MB metrics] precision: 0.938, recall: 1.000, acc: 0.966, f1: 0.968
+[2025-04-24 11:57:22,854] check dag: True
+[2025-04-24 11:57:22,860] sub_met2 before prunning None
+[2025-04-24 11:57:22,860] sub_met after prunning {'fdr': 0.77, 'tpr': 0.5349, 'fpr': 1.0, 'shd': 80, 'nnz': 100, 'precision': 0.23, 'recall': 0.5349, 'F1': 0.3217, 'gscore': 0.0}
+[2025-04-24 11:57:22,860] 
+===  2-th graph ===
+[2025-04-24 11:57:22,860] 13 Nodes of True MB: [1, 2, 3, 7, 9, 12, 13, 17, 21, 23, 25, 26, 27], parents: {27, 13}, children: {1, 9, 23}, spouse: {2, 3, 7, 12, 13, 17, 21, 25, 26, 27}
+[2025-04-24 11:57:22,861] 12 Nodes of Markov blanket: [1, 2, 3, 7, 9, 12, 13, 17, 21, 23, 25, 26]
+[2025-04-24 11:57:22,865] [MB metrics] precision: 1.000, recall: 0.923, acc: 0.964, f1: 0.960
+[2025-04-24 11:57:25,303] check dag: True
+[2025-04-24 11:57:25,310] sub_met2 before prunning None
+[2025-04-24 11:57:25,310] sub_met after prunning {'fdr': 0.7759, 'tpr': 0.52, 'fpr': 1.0976, 'shd': 46, 'nnz': 58, 'precision': 0.2241, 'recall': 0.52, 'F1': 0.3133, 'gscore': 0.0}
+[2025-04-24 11:57:25,310] 
+===  3-th graph ===
+[2025-04-24 11:57:25,310] 9 Nodes of True MB: [2, 3, 12, 13, 18, 21, 23, 26, 29], parents: {12, 13, 18, 26, 29}, children: {23}, spouse: {2, 3, 12, 13, 21}
+[2025-04-24 11:57:25,310] 8 Nodes of Markov blanket: [2, 3, 12, 18, 21, 23, 26, 29]
+[2025-04-24 11:57:25,315] [MB metrics] precision: 1.000, recall: 0.889, acc: 0.967, f1: 0.941
+[2025-04-24 11:57:25,657] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 47, in fes
+    C = graph.pdag_to_cpdag(C)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 178, in pdag_to_cpdag
+    G = pdag_to_dag(P)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 227, in pdag_to_dag
+    raise ValueError("The PDAG does not admit any extension.")
+ValueError: The PDAG does not admit any extension.
+
+[2025-04-24 11:57:25,657] 
+===  4-th graph ===
+[2025-04-24 11:57:25,657] 18 Nodes of True MB: [0, 1, 4, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 21, 25, 26, 27, 28], parents: {18, 11}, children: {17, 28, 13, 7}, spouse: {0, 1, 4, 8, 11, 12, 14, 15, 16, 21, 25, 26, 27}
+[2025-04-24 11:57:25,657] 13 Nodes of Markov blanket: [0, 1, 4, 7, 8, 11, 12, 16, 18, 21, 26, 27, 28]
+[2025-04-24 11:57:25,662] [MB metrics] precision: 1.000, recall: 0.722, acc: 0.828, f1: 0.839
+[2025-04-24 11:57:28,982] check dag: True
+[2025-04-24 11:57:28,988] sub_met2 before prunning None
+[2025-04-24 11:57:28,988] sub_met after prunning {'fdr': 0.7761, 'tpr': 0.5172, 'fpr': 1.0612, 'shd': 53, 'nnz': 67, 'precision': 0.2239, 'recall': 0.5172, 'F1': 0.3125, 'gscore': 0.0}
+[2025-04-24 11:57:28,988] 
+===  5-th graph ===
+[2025-04-24 11:57:28,988] 15 Nodes of True MB: [0, 5, 7, 11, 12, 14, 15, 16, 20, 21, 24, 25, 26, 27, 29], parents: set(), children: {11, 12, 14, 20, 21, 24, 26, 29}, spouse: {0, 5, 7, 11, 12, 15, 16, 20, 21, 25, 26, 27}
+[2025-04-24 11:57:28,988] 14 Nodes of Markov blanket: [0, 5, 7, 11, 12, 14, 16, 20, 21, 24, 25, 26, 27, 29]
+[2025-04-24 11:57:28,993] [MB metrics] precision: 1.000, recall: 0.933, acc: 0.967, f1: 0.966
+[2025-04-24 11:57:32,957] check dag: True
+[2025-04-24 11:57:32,963] sub_met2 before prunning None
+[2025-04-24 11:57:32,963] sub_met after prunning {'fdr': 0.6393, 'tpr': 0.6111, 'fpr': 0.7091, 'shd': 40, 'nnz': 61, 'precision': 0.3607, 'recall': 0.6111, 'F1': 0.4536, 'gscore': 0.0}
+[2025-04-24 11:57:32,963] 
+===  6-th graph ===
+[2025-04-24 11:57:32,964] 18 Nodes of True MB: [6, 7, 8, 10, 11, 12, 13, 14, 17, 19, 20, 21, 23, 24, 26, 27, 28, 29], parents: {17, 20, 24, 26, 27}, children: {8, 10}, spouse: {6, 7, 11, 12, 13, 14, 17, 19, 21, 23, 24, 26, 27, 28, 29}
+[2025-04-24 11:57:32,964] 17 Nodes of Markov blanket: [6, 7, 8, 10, 11, 12, 13, 14, 19, 20, 21, 23, 24, 26, 27, 28, 29]
+[2025-04-24 11:57:32,968] [MB metrics] precision: 1.000, recall: 0.944, acc: 0.967, f1: 0.971
+[2025-04-24 11:57:54,143] check dag: True
+[2025-04-24 11:57:54,150] sub_met2 before prunning None
+[2025-04-24 11:57:54,150] sub_met after prunning {'fdr': 0.8226, 'tpr': 0.4314, 'fpr': 1.2, 'shd': 106, 'nnz': 124, 'precision': 0.1774, 'recall': 0.4314, 'F1': 0.2514, 'gscore': 0.0}
+[2025-04-24 11:57:54,150] 
+===  7-th graph ===
+[2025-04-24 11:57:54,151] 21 Nodes of True MB: [0, 1, 2, 4, 5, 6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 24, 25, 26, 27, 28, 29], parents: {0, 4, 11, 12, 21, 26, 27}, children: {24, 1, 10}, spouse: {0, 2, 5, 6, 7, 11, 12, 13, 17, 19, 21, 23, 25, 26, 27, 28, 29}
+[2025-04-24 11:57:54,151] 19 Nodes of Markov blanket: [1, 2, 4, 5, 6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 24, 25, 27, 28, 29]
+[2025-04-24 11:57:54,155] [MB metrics] precision: 1.000, recall: 0.905, acc: 0.933, f1: 0.950
+[2025-04-24 11:59:27,362] check dag: True
+[2025-04-24 11:59:27,369] sub_met2 before prunning None
+[2025-04-24 11:59:27,369] sub_met after prunning {'fdr': 0.7603, 'tpr': 0.5932, 'fpr': 0.9911, 'shd': 112, 'nnz': 146, 'precision': 0.2397, 'recall': 0.5932, 'F1': 0.3415, 'gscore': 0.0}
+[2025-04-24 11:59:27,369] 
+===  8-th graph ===
+[2025-04-24 11:59:27,369] 12 Nodes of True MB: [1, 4, 6, 8, 12, 14, 16, 21, 24, 26, 27, 28], parents: {6, 12, 14, 21, 24, 26, 27}, children: {28}, spouse: {1, 4, 8, 16, 21, 26}
+[2025-04-24 11:59:27,370] 11 Nodes of Markov blanket: [1, 4, 6, 8, 14, 16, 21, 24, 26, 27, 28]
+[2025-04-24 11:59:27,374] [MB metrics] precision: 1.000, recall: 0.917, acc: 0.966, f1: 0.957
+[2025-04-24 11:59:28,757] check dag: True
+[2025-04-24 11:59:28,762] sub_met2 before prunning None
+[2025-04-24 11:59:28,762] sub_met after prunning {'fdr': 0.8235, 'tpr': 0.4091, 'fpr': 1.2727, 'shd': 42, 'nnz': 51, 'precision': 0.1765, 'recall': 0.4091, 'F1': 0.2466, 'gscore': 0.0}
+[2025-04-24 11:59:28,762] 
+===  9-th graph ===
+[2025-04-24 11:59:28,762] 5 Nodes of True MB: [2, 9, 17, 21, 26], parents: {17, 2, 26, 21}, children: set(), spouse: {9}
+[2025-04-24 11:59:28,762] 5 Nodes of Markov blanket: [2, 9, 17, 21, 26]
+[2025-04-24 11:59:28,766] [MB metrics] precision: 1.000, recall: 1.000, acc: 1.000, f1: 1.000
+[2025-04-24 11:59:28,821] check dag: True
+[2025-04-24 11:59:28,825] sub_met2 before prunning None
+[2025-04-24 11:59:28,825] sub_met after prunning {'fdr': 0.7778, 'tpr': 0.4, 'fpr': 1.4, 'shd': 7, 'nnz': 9, 'precision': 0.2222, 'recall': 0.4, 'F1': 0.2857, 'gscore': 0.0}
+[2025-04-24 11:59:28,825] 
+===  10-th graph ===
+[2025-04-24 11:59:28,825] 13 Nodes of True MB: [6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29], parents: {6, 7, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29}, children: set(), spouse: {10}
+[2025-04-24 11:59:28,825] 11 Nodes of Markov blanket: [6, 7, 10, 11, 12, 13, 19, 21, 23, 27, 29]
+[2025-04-24 11:59:28,830] [MB metrics] precision: 1.000, recall: 0.846, acc: 0.933, f1: 0.917
+[2025-04-24 11:59:30,543] check dag: True
+[2025-04-24 11:59:30,548] sub_met2 before prunning None
+[2025-04-24 11:59:30,548] sub_met after prunning {'fdr': 0.75, 'tpr': 0.5417, 'fpr': 1.2581, 'shd': 40, 'nnz': 52, 'precision': 0.25, 'recall': 0.5417, 'F1': 0.3421, 'gscore': 0.0}
+[2025-04-24 11:59:30,548] 
+===  11-th graph ===
+[2025-04-24 11:59:30,548] 22 Nodes of True MB: [0, 4, 5, 6, 7, 10, 11, 12, 13, 15, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29], parents: {5}, children: {0, 4, 7, 10, 15, 21, 24, 27, 29}, spouse: {0, 4, 5, 6, 7, 11, 12, 13, 15, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29}
+[2025-04-24 11:59:30,548] 19 Nodes of Markov blanket: [0, 1, 4, 5, 6, 7, 10, 11, 13, 15, 17, 18, 19, 21, 23, 24, 25, 27, 29]
+[2025-04-24 11:59:30,553] [MB metrics] precision: 0.947, recall: 0.818, acc: 0.833, f1: 0.878
+[2025-04-24 12:00:45,474] check dag: True
+[2025-04-24 12:00:45,481] sub_met2 before prunning None
+[2025-04-24 12:00:45,481] sub_met after prunning {'fdr': 0.8503, 'tpr': 0.3929, 'fpr': 1.087, 'shd': 129, 'nnz': 147, 'precision': 0.1497, 'recall': 0.3929, 'F1': 0.2167, 'gscore': 0.0}
+[2025-04-24 12:00:45,482] 
+===  12-th graph ===
+[2025-04-24 12:00:45,482] 28 Nodes of True MB: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29], parents: {5}, children: {1, 3, 7, 8, 10, 14, 15, 19, 23, 25, 26}, spouse: {0, 1, 2, 3, 4, 5, 6, 7, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29}
+[2025-04-24 12:00:45,482] 25 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 7, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 27, 28, 29]
+[2025-04-24 12:00:45,487] [MB metrics] precision: 1.000, recall: 0.893, acc: 0.900, f1: 0.943
+[2025-04-24 13:30:55,499] check dag: True
+[2025-04-24 13:30:55,508] sub_met2 before prunning None
+[2025-04-24 13:30:55,508] sub_met after prunning {'fdr': 0.8415, 'tpr': 0.5065, 'fpr': 0.9283, 'shd': 210, 'nnz': 246, 'precision': 0.1585, 'recall': 0.5065, 'F1': 0.2415, 'gscore': 0.0}
+[2025-04-24 13:30:55,508] 
+===  13-th graph ===
+[2025-04-24 13:30:55,508] 22 Nodes of True MB: [0, 1, 2, 3, 4, 6, 7, 10, 11, 12, 13, 17, 18, 19, 21, 23, 24, 25, 26, 27, 28, 29], parents: {0, 25, 4}, children: {2, 3, 10, 19, 23}, spouse: {1, 2, 3, 6, 7, 11, 12, 13, 17, 18, 19, 21, 23, 24, 26, 27, 28, 29}
+[2025-04-24 13:30:55,508] 16 Nodes of Markov blanket: [0, 1, 2, 6, 7, 10, 11, 12, 13, 18, 19, 21, 24, 25, 27, 29]
+[2025-04-24 13:30:55,513] [MB metrics] precision: 1.000, recall: 0.727, acc: 0.800, f1: 0.842
+[2025-04-24 13:31:06,215] check dag: True
+[2025-04-24 13:31:06,221] sub_met2 before prunning None
+[2025-04-24 13:31:06,222] sub_met after prunning {'fdr': 0.8922, 'tpr': 0.2558, 'fpr': 1.1818, 'shd': 92, 'nnz': 102, 'precision': 0.1078, 'recall': 0.2558, 'F1': 0.1517, 'gscore': 0.0}
+[2025-04-24 13:31:06,222] 
+===  14-th graph ===
+[2025-04-24 13:31:06,222] 14 Nodes of True MB: [4, 5, 6, 8, 12, 14, 15, 16, 17, 21, 24, 25, 26, 27], parents: {16, 21, 12, 5}, children: {8, 17}, spouse: {4, 6, 12, 14, 15, 21, 24, 25, 26, 27}
+[2025-04-24 13:31:06,222] 9 Nodes of Markov blanket: [5, 6, 8, 12, 14, 16, 21, 24, 27]
+[2025-04-24 13:31:06,226] [MB metrics] precision: 1.000, recall: 0.643, acc: 0.821, f1: 0.783
+[2025-04-24 13:31:06,826] check dag: True
+[2025-04-24 13:31:06,831] sub_met2 before prunning None
+[2025-04-24 13:31:06,831] sub_met after prunning {'fdr': 0.7097, 'tpr': 0.5, 'fpr': 1.2222, 'shd': 24, 'nnz': 31, 'precision': 0.2903, 'recall': 0.5, 'F1': 0.3673, 'gscore': 0.0}
+[2025-04-24 13:31:06,831] 
+===  15-th graph ===
+[2025-04-24 13:31:06,831] 13 Nodes of True MB: [4, 5, 11, 12, 14, 15, 17, 18, 20, 21, 25, 26, 29], parents: {11, 12, 18, 25, 26}, children: {17, 29}, spouse: {4, 5, 11, 14, 15, 20, 21, 25}
+[2025-04-24 13:31:06,831] 7 Nodes of Markov blanket: [11, 12, 15, 17, 18, 21, 25]
+[2025-04-24 13:31:06,836] [MB metrics] precision: 1.000, recall: 0.538, acc: 0.800, f1: 0.700
+[2025-04-24 13:31:07,001] check dag: True
+[2025-04-24 13:31:07,006] sub_met2 before prunning None
+[2025-04-24 13:31:07,006] sub_met after prunning {'fdr': 0.8235, 'tpr': 0.3333, 'fpr': 1.1667, 'shd': 15, 'nnz': 17, 'precision': 0.1765, 'recall': 0.3333, 'F1': 0.2308, 'gscore': 0.0}
+[2025-04-24 13:31:07,006] 
+===  16-th graph ===
+[2025-04-24 13:31:07,006] 11 Nodes of True MB: [0, 1, 4, 5, 8, 12, 14, 16, 21, 26, 28], parents: {0}, children: {28, 14}, spouse: {1, 4, 5, 8, 12, 16, 21, 26}
+[2025-04-24 13:31:07,006] 11 Nodes of Markov blanket: [0, 1, 4, 5, 8, 12, 14, 16, 21, 26, 28]
+[2025-04-24 13:31:07,010] [MB metrics] precision: 1.000, recall: 1.000, acc: 1.000, f1: 1.000
+[2025-04-24 13:31:08,371] check dag: True
+[2025-04-24 13:31:08,377] sub_met2 before prunning None
+[2025-04-24 13:31:08,377] sub_met after prunning {'fdr': 0.9216, 'tpr': 0.1905, 'fpr': 1.3824, 'shd': 48, 'nnz': 51, 'precision': 0.0784, 'recall': 0.1905, 'F1': 0.1111, 'gscore': 0.0}
+[2025-04-24 13:31:08,377] 
+===  17-th graph ===
+[2025-04-24 13:31:08,377] 22 Nodes of True MB: [2, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29], parents: {4, 14, 15, 21, 25}, children: {9, 10, 6}, spouse: {2, 6, 7, 11, 12, 13, 17, 19, 20, 21, 23, 24, 26, 27, 28, 29}
+[2025-04-24 13:31:08,377] 16 Nodes of Markov blanket: [2, 7, 9, 11, 12, 15, 17, 19, 20, 21, 23, 24, 25, 26, 27, 29]
+[2025-04-24 13:31:08,381] [MB metrics] precision: 1.000, recall: 0.727, acc: 0.800, f1: 0.842
+[2025-04-24 13:31:22,937] check dag: True
+[2025-04-24 13:31:22,944] sub_met2 before prunning None
+[2025-04-24 13:31:22,944] sub_met after prunning {'fdr': 0.7526, 'tpr': 0.6316, 'fpr': 0.8902, 'shd': 75, 'nnz': 97, 'precision': 0.2474, 'recall': 0.6316, 'F1': 0.3556, 'gscore': 0.0}
+[2025-04-24 13:31:22,944] 
+===  18-th graph ===
+[2025-04-24 13:31:22,945] 10 Nodes of True MB: [3, 4, 11, 12, 13, 15, 18, 25, 26, 29], parents: set(), children: {3, 4, 15}, spouse: {11, 12, 13, 18, 25, 26, 29}
+[2025-04-24 13:31:22,945] 11 Nodes of Markov blanket: [0, 3, 4, 11, 12, 13, 15, 18, 25, 26, 29]
+[2025-04-24 13:31:22,950] [MB metrics] precision: 0.909, recall: 1.000, acc: 0.967, f1: 0.952
+[2025-04-24 13:31:24,623] check dag: True
+[2025-04-24 13:31:24,629] sub_met2 before prunning None
+[2025-04-24 13:31:24,629] sub_met after prunning {'fdr': 0.6744, 'tpr': 0.6667, 'fpr': 0.8529, 'shd': 30, 'nnz': 43, 'precision': 0.3256, 'recall': 0.6667, 'F1': 0.4375, 'gscore': 0.0}
+[2025-04-24 13:31:24,629] 
+===  19-th graph ===
+[2025-04-24 13:31:24,630] 16 Nodes of True MB: [1, 6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 24, 26, 27, 28, 29], parents: {1, 12, 13, 24, 26}, children: {10}, spouse: {6, 7, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29}
+[2025-04-24 13:31:24,630] 16 Nodes of Markov blanket: [1, 6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 24, 26, 27, 28, 29]
+[2025-04-24 13:31:24,635] [MB metrics] precision: 1.000, recall: 1.000, acc: 1.000, f1: 1.000
+[2025-04-24 13:31:34,691] check dag: True
+[2025-04-24 13:31:34,697] sub_met2 before prunning None
+[2025-04-24 13:31:34,697] sub_met after prunning {'fdr': 0.7727, 'tpr': 0.5435, 'fpr': 1.1486, 'shd': 87, 'nnz': 110, 'precision': 0.2273, 'recall': 0.5435, 'F1': 0.3205, 'gscore': 0.0}
+[2025-04-24 13:31:34,697] 
+===  20-th graph ===
+[2025-04-24 13:31:34,697] 11 Nodes of True MB: [5, 6, 11, 12, 15, 17, 20, 24, 26, 27, 29], parents: {5}, children: {26, 29, 6}, spouse: {5, 11, 12, 15, 17, 20, 24, 26, 27}
+[2025-04-24 13:31:34,698] 8 Nodes of Markov blanket: [5, 6, 12, 17, 20, 24, 26, 27]
+[2025-04-24 13:31:34,702] [MB metrics] precision: 1.000, recall: 0.727, acc: 0.900, f1: 0.842
+[2025-04-24 13:31:35,095] check dag: True
+[2025-04-24 13:31:35,100] sub_met2 before prunning None
+[2025-04-24 13:31:35,100] sub_met after prunning {'fdr': 0.6, 'tpr': 0.7692, 'fpr': 1.0, 'shd': 16, 'nnz': 25, 'precision': 0.4, 'recall': 0.7692, 'F1': 0.5263, 'gscore': 0.0}
+[2025-04-24 13:31:35,100] 
+===  21-th graph ===
+[2025-04-24 13:31:35,101] 27 Nodes of True MB: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 24, 25, 26, 27, 28, 29], parents: {0, 27, 11, 5}, children: {7, 8, 9, 10, 14, 17, 23, 24, 28}, spouse: {0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 24, 25, 26, 27, 28, 29}
+[2025-04-24 13:31:35,101] 25 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 21, 23, 25, 26, 27, 29]
+[2025-04-24 13:31:35,106] [MB metrics] precision: 1.000, recall: 0.926, acc: 0.933, f1: 0.962
+[2025-04-24 14:17:37,196] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 83, in forward_search
+    if not insert_validity(x, y, T, C):
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/inserter.py", line 87, in insert_validity
+    semi_paths = graph.semi_directed_path(y, x, C)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 108, in semi_directed_path
+    current_path = cache.pop(0)
+KeyboardInterrupt
+
+[2025-04-24 14:17:37,221] 
+===  22-th graph ===
+[2025-04-24 14:17:37,221] 1 Nodes of True MB: [22], parents: set(), children: set(), spouse: {22}
+[2025-04-24 14:17:37,221] 
+===  23-th graph ===
+[2025-04-24 14:17:37,221] 15 Nodes of True MB: [2, 3, 6, 7, 10, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29], parents: {2, 3, 12, 13, 21}, children: {10}, spouse: {6, 7, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29}
+[2025-04-24 14:17:37,221] 13 Nodes of Markov blanket: [2, 3, 6, 7, 10, 11, 12, 17, 19, 21, 23, 27, 29]
+[2025-04-24 14:17:37,227] [MB metrics] precision: 1.000, recall: 0.867, acc: 0.933, f1: 0.929
+[2025-04-24 14:17:41,870] check dag: True
+[2025-04-24 14:17:41,876] sub_met2 before prunning None
+[2025-04-24 14:17:41,876] sub_met after prunning {'fdr': 0.7536, 'tpr': 0.5862, 'fpr': 1.0612, 'shd': 53, 'nnz': 69, 'precision': 0.2464, 'recall': 0.5862, 'F1': 0.3469, 'gscore': 0.0}
+[2025-04-24 14:17:41,876] 
+===  24-th graph ===
+[2025-04-24 14:17:41,876] 18 Nodes of True MB: [0, 1, 5, 6, 7, 8, 11, 12, 13, 14, 17, 19, 20, 21, 24, 25, 26, 27], parents: {0, 5, 7, 11, 21, 25, 26, 27}, children: {8, 19, 6}, spouse: {1, 6, 12, 13, 14, 17, 20, 21, 24, 26, 27}
+[2025-04-24 14:17:41,876] 17 Nodes of Markov blanket: [0, 1, 5, 6, 7, 8, 11, 12, 13, 14, 17, 19, 20, 24, 25, 26, 27]
+[2025-04-24 14:17:41,880] [MB metrics] precision: 1.000, recall: 0.944, acc: 0.964, f1: 0.971
+[2025-04-24 14:17:44,250] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 83, in forward_search
+    if not insert_validity(x, y, T, C):
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/inserter.py", line 87, in insert_validity
+    semi_paths = graph.semi_directed_path(y, x, C)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 105, in semi_directed_path
+    visitable = {i: child(i, G) | neighbors(i, G) for i in range(G.shape[0])}
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 105, in <dictcomp>
+    visitable = {i: child(i, G) | neighbors(i, G) for i in range(G.shape[0])}
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 79, in child
+    return connect(i, G, relation='child')
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 42, in connect
+    elif relation.lower() == 'neighbors':
+KeyboardInterrupt
+
+[2025-04-24 14:17:44,250] 
+===  25-th graph ===
+[2025-04-24 14:17:44,250] 18 Nodes of True MB: [0, 1, 2, 4, 5, 7, 11, 12, 13, 14, 15, 17, 18, 21, 24, 25, 26, 27], parents: {0, 12}, children: {1, 13, 15, 17, 24}, spouse: {0, 2, 4, 5, 7, 11, 12, 14, 15, 18, 21, 25, 26, 27}
+[2025-04-24 14:17:44,251] 15 Nodes of Markov blanket: [0, 1, 2, 5, 7, 11, 12, 13, 15, 17, 18, 21, 24, 25, 26]
+[2025-04-24 14:17:44,256] [MB metrics] precision: 1.000, recall: 0.833, acc: 0.893, f1: 0.909
+[2025-04-24 14:17:44,975] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 91, in forward_search
+    det = (criterion.local_score(y, pa1)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 58, in local_score
+    return self._bic_by_scatter(y, pa_y)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 88, in _bic_by_scatter
+    pa_cov = scatter[pa, :][:, pa]
+KeyboardInterrupt
+
+[2025-04-24 14:17:44,975] 
+===  26-th graph ===
+[2025-04-24 14:17:44,975] 27 Nodes of True MB: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28, 29], parents: {20, 12, 5}, children: {3, 6, 7, 8, 9, 15, 19, 24, 28}, spouse: {0, 1, 2, 4, 5, 6, 7, 8, 11, 12, 13, 14, 16, 17, 18, 20, 21, 24, 25, 26, 27, 29}
+[2025-04-24 14:17:44,975] 20 Nodes of Markov blanket: [0, 1, 2, 3, 4, 5, 6, 8, 9, 16, 17, 18, 19, 20, 21, 24, 25, 26, 27, 29]
+[2025-04-24 14:17:44,980] [MB metrics] precision: 1.000, recall: 0.741, acc: 0.767, f1: 0.851
+[2025-04-24 14:17:45,162] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 83, in forward_search
+    if not insert_validity(x, y, T, C):
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/inserter.py", line 87, in insert_validity
+    semi_paths = graph.semi_directed_path(y, x, C)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 105, in semi_directed_path
+    visitable = {i: child(i, G) | neighbors(i, G) for i in range(G.shape[0])}
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 105, in <dictcomp>
+    visitable = {i: child(i, G) | neighbors(i, G) for i in range(G.shape[0])}
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/functional/graph.py", line 79, in child
+    return connect(i, G, relation='child')
+KeyboardInterrupt
+
+[2025-04-24 14:17:45,162] 
+===  27-th graph ===
+[2025-04-24 14:17:45,162] 24 Nodes of True MB: [0, 1, 2, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 17, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29], parents: {11}, children: {1, 2, 6, 7, 8, 10, 21, 24}, spouse: {0, 2, 4, 5, 6, 7, 11, 12, 13, 14, 17, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29}
+[2025-04-24 14:17:45,162] 21 Nodes of Markov blanket: [0, 1, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 17, 19, 20, 21, 23, 24, 26, 27, 29]
+[2025-04-24 14:17:45,167] [MB metrics] precision: 1.000, recall: 0.875, acc: 0.900, f1: 0.933
+[2025-04-24 14:17:45,340] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 92, in forward_search
+    - criterion.local_score(y, pa2))
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 58, in local_score
+    return self._bic_by_scatter(y, pa_y)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 83, in _bic_by_scatter
+    scatter = np.cov(self.data, rowvar=False, ddof=0)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/lib/function_base.py", line 2724, in cov
+    avg, w_sum = average(X, axis=1, weights=w, returned=True)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/lib/function_base.py", line 520, in average
+    avg = a.mean(axis, **keepdims_kw)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/core/_methods.py", line 121, in _mean
+    ret = um.true_divide(
+KeyboardInterrupt
+
+[2025-04-24 14:17:45,340] 
+===  28-th graph ===
+[2025-04-24 14:17:45,340] 18 Nodes of True MB: [1, 4, 6, 7, 8, 10, 11, 12, 13, 16, 17, 19, 21, 23, 26, 27, 28, 29], parents: {1, 4, 8, 16, 21, 26}, children: {10}, spouse: {6, 7, 11, 12, 13, 17, 19, 21, 23, 27, 28, 29}
+[2025-04-24 14:17:45,340] 10 Nodes of Markov blanket: [1, 4, 6, 7, 8, 12, 16, 19, 28, 29]
+[2025-04-24 14:17:45,345] [MB metrics] precision: 1.000, recall: 0.556, acc: 0.733, f1: 0.714
+[2025-04-24 14:17:45,483] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 91, in forward_search
+    det = (criterion.local_score(y, pa1)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 58, in local_score
+    return self._bic_by_scatter(y, pa_y)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 83, in _bic_by_scatter
+    scatter = np.cov(self.data, rowvar=False, ddof=0)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/lib/function_base.py", line 2747, in cov
+    c = dot(X, X_T.conj())
+KeyboardInterrupt
+
+[2025-04-24 14:17:45,483] 
+===  29-th graph ===
+[2025-04-24 14:17:45,483] 19 Nodes of True MB: [3, 5, 6, 7, 10, 11, 12, 13, 15, 17, 18, 19, 20, 21, 23, 26, 27, 28, 29], parents: {11, 20, 5, 15}, children: {10, 3}, spouse: {6, 7, 11, 12, 13, 17, 18, 19, 21, 23, 26, 27, 28, 29}
+[2025-04-24 14:17:45,483] 17 Nodes of Markov blanket: [3, 5, 6, 7, 10, 11, 12, 13, 17, 18, 19, 21, 23, 26, 27, 28, 29]
+[2025-04-24 14:17:45,487] [MB metrics] precision: 1.000, recall: 0.895, acc: 0.933, f1: 0.944
+[2025-04-24 14:17:45,984] [Error] infer_causal:
+Traceback (most recent call last):
+  File "/home/causual-discovery/DC_FAS.py", line 432, in <module>
+    sub_causal_matrix_order, sub_causal_matrix, sub_met2 = infer_causal(args, sub_X, sub_true_dag)
+  File "/home/causual-discovery/DC_FAS.py", line 266, in infer_causal
+    model.learn(X)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/ges.py", line 88, in learn
+    c = search.fes(C=e, criterion=self.criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 42, in fes
+    edge, t = forward_search(C, criterion)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/operators/search.py", line 92, in forward_search
+    - criterion.local_score(y, pa2))
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 58, in local_score
+    return self._bic_by_scatter(y, pa_y)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/castle/algorithms/ges/score/local_scores.py", line 83, in _bic_by_scatter
+    scatter = np.cov(self.data, rowvar=False, ddof=0)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/lib/function_base.py", line 2724, in cov
+    avg, w_sum = average(X, axis=1, weights=w, returned=True)
+  File "/root/miniconda3/envs/py310/lib/python3.10/site-packages/numpy/lib/function_base.py", line 558, in average
+    scl = np.broadcast_to(scl, avg_as_array.shape).copy()
+KeyboardInterrupt
+
+[2025-04-24 14:17:45,984] 
+======= Graph Summary =======
+[2025-04-24 14:17:45,985] MB summary: {'precision': '0.99+-0.02', 'recall': '0.85+-0.13', 'acc': '0.91+-0.07', 'f1': '0.91+-0.08'}
+[2025-04-24 14:17:46,002] merged_met_before  before prunning {'fdr': 0.8258, 'tpr': 0.5688, 'fpr': 0.9018, 'shd': 295, 'nnz': 356, 'precision': 0.1742, 'recall': 0.5688, 'F1': 0.2667, 'gscore': 0.0}
+[2025-04-24 14:17:46,019] merged_met_before lamb=0.01 thresh=0 {'fdr': 0.8169, 'tpr': 0.578, 'fpr': 0.862, 'shd': 283, 'nnz': 344, 'precision': 0.1831, 'recall': 0.578, 'F1': 0.2781, 'gscore': 0.0}
+[2025-04-24 14:17:46,036] merged_met_before lamb=0.01 thresh=0.05 {'fdr': 0.7321, 'tpr': 0.1376, 'fpr': 0.1258, 'shd': 122, 'nnz': 56, 'precision': 0.2679, 'recall': 0.1376, 'F1': 0.1818, 'gscore': 0.0}
+[2025-04-24 14:17:46,053] merged_met_before lamb=0.01 thresh=0.1 {'fdr': 0.6667, 'tpr': 0.0092, 'fpr': 0.0061, 'shd': 108, 'nnz': 3, 'precision': 0.3333, 'recall': 0.0092, 'F1': 0.0179, 'gscore': 0.0}
