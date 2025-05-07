@@ -67,7 +67,7 @@ def set_logger(args):
     # logger.warning("这是一条warning信息")
     # logger.error("这是一条error信息")
     # logger.critical("这是一条critical信息")
-    log_path = f"./experiment_logs/lamb_thresh_exp_{args.type}{args.h}N{args.nodes}_DCFAS_{args.model}.log"
+    log_path = f"./experiment_logs/v3_lamb_thresh_exp_{args.type}{args.h}N{args.nodes}_DCFAS_{args.model}.log"
     if os.path.exists(log_path): os.remove(log_path)
     
     logger = logging.getLogger(__name__)
@@ -90,7 +90,7 @@ def set_logger(args):
     
     
 
-def get_MB(data, ice_lam_min = 0.01, ice_lam_max = 0.4, ice_lam_n = 40):
+def get_MB(data, ice_lam_min = 0.01, ice_lam_max = 0.1, ice_lam_n = 40):
     # 这三个参数维持SCILP默认设置，具体取值也许论文里提及了？ TODO double check hyper-parameters in DCILP paper
     # ice_lam_min, ice_lam_max, ice_lam_n 0.1, 0.3, 10
 
@@ -396,7 +396,7 @@ if __name__ == '__main__':
         
 
         # 根据 markov_blankets 分割 true_dag 和 X
-        sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X)
+        sub_X_list, sub_true_dag_list, sub_nodes_list = split_graph(markov_blankets, true_dag, X[:2000])
 
         time_subgraph_list = []
         sub_causal_matrix_list_befroe = []
